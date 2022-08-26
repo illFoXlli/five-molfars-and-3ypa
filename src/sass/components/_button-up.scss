@@ -1,0 +1,43 @@
+.btn-up {
+  width: 40px;
+  height: 40px;
+  opacity: 1;
+  background-image: url(..//favicon/apple-touch-icon.png);
+  background-size: cover;
+  z-index: 100;
+  cursor: pointer;
+  background-color: transparent;
+  border: 0;
+  border-radius: 50%;
+  justify-content: center;
+  align-items: center;
+  padding: 0;
+  transition-property: opacity, background-color, box-shadow, -webkit-box-shadow;
+  transition-duration: 1s;
+  display: flex;
+  position: fixed;
+  bottom: 5px;
+  right: 10px;
+  @media screen and (min-width: 768px) {
+    width: 60px;
+    height: 60px;
+    bottom: 30px;
+  }
+  @media screen and (min-width: 1280px) {
+    width: 80px;
+    height: 80px;
+    right: 40px;
+  }
+}
+.btn-hidden {
+  opacity: 0;
+}
+.btn-up__icon {
+  width: 40%;
+  height: 40%;
+  border-top: 3px solid rgba(46, 37, 32, 0.7);
+  border-right: 3px solid rgba(46, 37, 32, 0.7);
+  border-radius: 3px;
+  margin-bottom: 8px;
+  transform: rotate(-45deg);
+}

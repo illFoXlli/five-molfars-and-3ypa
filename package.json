@@ -1,21 +1,21 @@
 {
-  "name": "parcel-project-template",
-  "version": "2.0.0",
+  "name": "five-molfars-and-3ypa",
+  "version": "1.0.0",
   "description": "",
-  "homepage": "https://goitacademy.github.io/parcel-project-template",
+  "homepage": "https://goitacademy.github.io/five-molfars-and-3ypa",
   "scripts": {
     "start": "parcel src/*.html",
-    "build": "parcel build src/*.html --public-url /parcel-project-template/"
+    "build": "parcel build src/*.html --public-url /five-molfars-and-3ypa/"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/goitacademy/parcel-project-template.git"
+    "url": "git+https://github.com/goitacademy/five-molfars-and-3ypa.git"
   },
   "keywords": [],
   "author": "Alexander Repeta <alexander.repeta@gmail.com>",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/goitacademy/parcel-project-template/issues"
+    "url": "https://github.com/goitacademy/five-molfars-and-3ypa/issues"
   },
   "dependencies": {
     "modern-normalize": "^1.1.0",
