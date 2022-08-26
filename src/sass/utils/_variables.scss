@@ -1,0 +1,76 @@
+:root {
+// logo color
+
+    --primary-logo-color: rgba(196, 196, 196, 0);
+    --secondary-logo-color: rgba(196, 196, 196, 0.03);
+// градиент logo
+
+    --gradient-logo-color: background: linear-gradient(136.07deg, rgba(196, 196, 196, 0.03) 10.75%, rgba(196, 196, 196, 0) 92.33%);
+
+
+    // background
+    //  rgba(11, 11, 11, 0.5); в Header
+    --primary-bg-color: rgba(11, 11, 11, 0.5);;
+
+// input //////////////////////////////////////////////
+
+    --primary-input-bg-color: background: rgba(255, 255, 255, 0.2);
+
+// modal/////////////////////////////////////////////////
+
+    --primary-modal-bg-color: background: rgba(255, 242, 253, 1);
+    --secondary-modal-bg-color:background: rgba(32, 13, 29, 0.6);
+
+// шрифт \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+
+    --primary-white-text-color: rgba(255, 255, 255, 1);
+
+    --pink-text-color: rgba(220, 86, 197, 1);
+
+    --gray-text-color: rgba(147, 147, 147, 1) ;
+
+    --blue-text-color: rgba(76, 0, 254, 1);
+
+    --black-text-color: rgba(14, 14, 14, 1);
+
+//    color icon ////////////////////////////////////////////
+    --icon-gray-bg-color:rgba(147, 147, 147, 1);    
+
+    --white-icon-color:rgba(255, 255, 255, 1);
+
+   --gray-icon-color: rgba(147, 147, 147, 1) ;
+
+    --blue-icon-color: rgba(76, 0, 254, 1);
+
+    --black-icon-color: rgba(14, 14, 14, 1);
+
+
+}
+
+
+
+
+
+
+
+
+
+// Linear Gradient rgba(196, 196, 196, 0.03) rgba(196, 196, 196, 0) - логотип
+
+// фон:
+// background: rgba(11, 11, 11, 0.5);  основний, герой
+
+// background: linear-gradient(180deg, rgba(13, 13, 13, 0) 0%, rgba(14, 14, 14, 0.8) 100%);
+
+// background: rgba(255, 255, 255, 0.2); backdrop-filter: blur(20px); інпут
+// background: rgba(255, 242, 253, 1); - модалка
+    //  background: rgba(32, 13, 29, 0.6);backdrop-filter: blur(3px); - модалка
+
+колір тексту:
+// rgba(255, 255, 255, 1) – основний білий
+// rgba(220, 86, 197, 1)   - рожевий
+// rgba(147, 147, 147, 1) – сірий
+// rgba(76, 0, 254, 1) – синій
+// rgba(14, 14, 14, 1) - чорний
+
+
