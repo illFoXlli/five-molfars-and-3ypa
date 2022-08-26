@@ -1,10 +1,12 @@
-@import "./utils/variables";
+@import './utils/variables';
 
-@import "./base/common";
-@import "./base/container";
+@import './base/common';
+@import './base/container';
 
-@import "./layout/headar";
-@import "./layout/content";
-@import "./layout/pagination";
-@import "./layout/footer";
-@import "./layout/madal";
+@import './layout/headar';
+@import './layout/content';
+@import './layout/pagination';
+@import './layout/footer';
+@import './layout/madal';
+
+@import './components/button-up';
