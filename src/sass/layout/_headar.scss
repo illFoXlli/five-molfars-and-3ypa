@@ -1,5 +1,24 @@
 .header {
   padding-bottom: 60px;
+
+  @media screen and (max-width: 767.98px) {
+    background-image: url(../images/header-bg/pic.png);
+    background-repeat: no-repeat;
+    background-position: center top;
+  }
+
+  @media screen and (min-width: 768px) {
+    background-image: url(../images/header-bg/pic-tablet.png);
+    background-repeat: no-repeat;
+    background-position: center top;
+  }
+
+  @media screen and (min-width: 1280px) {
+    background-image: url(../images/header-bg/pic-desktop.png);
+    background-repeat: no-repeat;
+    background-position: center top;
+
+  }
 }
 
 .header__title {
@@ -14,18 +33,22 @@
 
   animation: blink 8s infinite;
   color: var(--pink-text-color);
+
   @media screen and (min-width: 768px) {
     padding-top: 40px;
     padding-bottom: 40px;
     font-size: 30px;
     width: 400px;
   }
+
   @media screen and (min-width: 1280px) {
     font-size: 50px;
     width: 608px;
   }
 }
+
 @keyframes blink {
+
   20%,
   24%,
   55% {
@@ -63,10 +86,12 @@
     justify-content: space-between;
     width: 704px;
   }
+
   @media screen and (min-width: 1280px) {
     width: 608px;
   }
 }
+
 .search__input .search__input {
   filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
   width: 280px;
@@ -91,20 +116,20 @@
     transition-duration: 250ms;
     transition-property: border-color;
   }
+
   @media screen and (min-width: 768px) {
     width: 336px;
   }
+
   @media screen and (min-width: 1280px) {
     width: 288px;
   }
 }
 
 .custom-select-opener:focus {
-  background-image: linear-gradient(
-      45deg,
+  background-image: linear-gradient(45deg,
       #0000 50%,
-      var(--pink-text-color) 50%
-    ),
+      var(--pink-text-color) 50%),
     linear-gradient(135deg, var(--pink-text-color) 50%, #0000 50%) !important;
   background-position: calc(100% - 34px) calc(1em + 2px),
     calc(100% - 26px) calc(1em + 2px), calc(100% - 2.5em) 0.5em !important;
@@ -124,6 +149,7 @@
   padding: 1px 0px 1px 30px;
   cursor: pointer;
 }
+
 .custom-select-option.has-focus {
   background-color: var(--pink-text-color);
   transition: cubic-bezier(0.4, 0, 0.2, 1), 250ms, background-color;
@@ -143,12 +169,15 @@
   backdrop-filter: blur(20px);
 
   line-height: 20px;
+
   @media screen and (min-width: 768px) {
     width: 336px !important;
   }
+
   @media screen and (min-width: 1280px) {
     width: 288px !important;
   }
+
   &:focus,
   &:hover {
     border-color: var(--pink-text-color);
@@ -180,8 +209,10 @@
   display: block;
   cursor: pointer;
 }
+
 .search__block {
   margin-bottom: 24px;
+
   @media screen and (min-width: 768px) {
     margin-bottom: 0;
   }
@@ -207,6 +238,7 @@
   top: 0;
   left: 0;
 }
+
 .custom-select-panel {
   max-height: 0;
   transition: max-height 2s ease-out overflow-y 0.1s 0.5s;
@@ -220,13 +252,16 @@
   height: 158px;
   left: 9px;
   top: 15px;
+
   @media screen and (min-width: 768px) {
     width: 318px;
   }
+
   @media screen and (min-width: 1280px) {
     width: 270px;
   }
 }
+
 .custom-select-container.is-open .custom-select-panel {
   max-height: 10.7em;
   overflow-y: auto;
@@ -236,6 +271,7 @@
   line-height: 20px;
   color: #cccccc;
 }
+
 .custom-select-container.is-open .custom-select-panel::-webkit-scrollbar {
   width: 0;
 }
@@ -243,18 +279,22 @@
 [data-value='AF'] {
   margin-top: 30px;
 }
+
 .custom-select-option:first-child {
   display: none;
 }
+
 .search__icon {
   position: absolute;
   top: 30%;
   right: 10%;
+
   &:focus,
   &:hover {
     fill: var(--pink-text-color);
   }
 }
-.search__input:hover + .search__icon {
+
+.search__input:hover+.search__icon {
   fill: var(--pink-text-color);
 }
