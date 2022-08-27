@@ -1,34 +1,58 @@
 <!DOCTYPE html>
 <html lang="ru">
-
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="apple-touch-icon" sizes="76x76" href="./favicon/apple-touch-icon.png" />
-  <link rel="icon" type="image/png" sizes="32x32" href="./favicon/favicon-32x32.png" />
-  <link rel="icon" type="image/png" sizes="16x16" href="./favicon/favicon-16x16.png" />
-  <link rel="manifest" href="./favicon/site.webmanifest" />
-  <link rel="mask-icon" href="./favicon/safari-pinned-tab.svg" color="#5bbad5" />
-  <meta name="msapplication-TileColor" content="#da532c" />
-  <meta name="theme-color" content="#ffffff" />
-  <title>Event</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700;900&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="./sass/index.scss" />
-</head>
-
-<body>
-  <include src="./partials/preloader.html"></include>
-  <include src="./partials/header.html"></include>
-  <include src="./partials/container.html"></include>
-  <include src="./partials/pagination.html"></include>
-  <include src="./partials/footer.html"></include>
-  <include src="./partials/modal.html"></include>
-  <button class="btn-up" id="upBtn" type="button" aria-label="To-Top">
-    <!-- <span class="btn-up__icon"></span> -->
-  </button>
-  <script type="module" src="./index.js"></script>
-</body>
-
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="apple-touch-icon"
+      sizes="76x76"
+      href="./favicon/apple-touch-icon.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./favicon/favicon-32x32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="./favicon/favicon-16x16.png"
+    />
+    <link rel="manifest" href="./favicon/site.webmanifest" />
+    <link
+      rel="mask-icon"
+      href="./favicon/safari-pinned-tab.svg"
+      color="#5bbad5"
+    />
+    <meta name="msapplication-TileColor" content="#da532c" />
+    <meta name="theme-color" content="#ffffff" />
+    <title>Event</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700;900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./sass/index.scss" />
+  </head>
+  <body>
+    <include src="./partials/preloader.html"></include>
+    <include src="./partials/header.html"></include>
+    <include src="./partials/container.html"></include>
+    <include src="./partials/pagination.html"></include>
+    <div id="pagination" class="tui-pagination"></div>
+    <include src="./partials/footer.html"></include>
+    <include src="./partials/modal.html"></include>
+    <button
+      class="btn-up btn-hidden"
+      id="upBtn"
+      type="button"
+      aria-label="To-Top"
+    >
+      <!-- <span class="btn-up__icon"></span> -->
+    </button>
+    <script type="module" src="./index.js"></script>
+  </body>
 </html>
