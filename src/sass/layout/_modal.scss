@@ -17,6 +17,8 @@
   }
 
   &__list {
+    margin-top: 40px;
+    margin-bottom: 100px;
   }
 
   &__list-title {
@@ -41,24 +43,31 @@
     margin-bottom: 16px;
   }
 
+  &__list-item:last-child {
+    margin-bottom: 0;
+  }
+
   &__list-btn {
     margin-top: 16px;
     margin-bottom: 16px;
-    border: 1px solid #4c00fe;
+    padding: 10px 20px;
     border-radius: 5px;
     font-weight: 500;
     font-size: 16px;
     line-height: 20px;
+    background: #4c00fe;
+    color: rgba(255, 255, 255, 1);
+    border: inherit;
   }
   &__list-btn-more {
-    color: rgba(255, 255, 255, 1);
     margin-top: 16px;
-    margin-bottom: 16px;
-    background: #4c00fe;
     border-radius: 5px;
     font-weight: 500;
     font-size: 16px;
     line-height: 20px;
+    border: 1px solid #4c00fe;
+    padding: 10px 20px;
+    padding: 10px 3px;
   }
 }
 .burger-menu {
@@ -67,4 +76,7 @@
 
   &__menu {
   }
+}
+.secondP {
+  margin-top: 3px;
 }
