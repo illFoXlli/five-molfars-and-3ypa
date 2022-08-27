@@ -10,7 +10,8 @@
 
     // background
     //  rgba(11, 11, 11, 0.5); в Header
-    --primary-bg-color: rgba(11, 11, 11, 0.5);;
+    --primary-bg-color: rgba(11, 11, 11, 0.5);
+    --black-bg-color: #0E0E0E;
 
 // input //////////////////////////////////////////////
 
@@ -33,7 +34,11 @@
 
     --black-text-color: rgba(14, 14, 14, 1);
 
-    --title-text-animation-color: #a91079;
+ --primary-text-font: "Montserrat", "sans-serif";
+
+  --secondary-text-font: "Raleway", "sans-serif";
+
+
 
 //    color icon ////////////////////////////////////////////
     --icon-gray-bg-color:rgba(147, 147, 147, 1);    
