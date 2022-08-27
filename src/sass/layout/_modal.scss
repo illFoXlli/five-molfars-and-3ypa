@@ -1,23 +1,33 @@
 .modal {
-  //   display: block;
+  position: relative;
   width: 280px;
   background: #fff2fd;
   margin: 0 auto;
   padding: 25px;
   border-radius: 150px 0;
-  //   justify-content: center;
+
   &__menu-btn {
+    position: absolute;
+    top: 25px;
+    right: 25px;
     margin: 0 auto;
   }
 
   &__svg {
+    margin-right: 13px;
   }
 
   &__img {
+    width: 102px;
+    height: 102px;
+    border-radius: 50%;
+    margin-top: 40px;
+    margin-left: auto;
+    margin-bottom: 20px;
+    margin-right: auto;
   }
 
   &__list {
-    margin-top: 40px;
     margin-bottom: 100px;
   }
 
