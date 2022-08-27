@@ -10,7 +10,8 @@
 
     // background
     //  rgba(11, 11, 11, 0.5); в Header
-    --primary-bg-color: rgba(11, 11, 11, 0.5);;
+    --primary-bg-color: rgba(11, 11, 11, 0.5);
+    --black-bg-color: #0E0E0E;
 
 // input //////////////////////////////////////////////
 
@@ -33,7 +34,10 @@
 
     --black-text-color: rgba(14, 14, 14, 1);
 
-    --title-text-animation-color: #a91079;
+ --primary-text-font: "Montserrat", "sans-serif";
+  --secondary-text-font: "Raleway", "sans-serif";
+
+ --title-text-animation-color: #a91079;
 
 //    color icon ////////////////////////////////////////////
     --icon-gray-bg-color:rgba(147, 147, 147, 1);    
@@ -45,9 +49,11 @@
     --blue-icon-color: rgba(76, 0, 254, 1);
 
     --black-icon-color: rgba(14, 14, 14, 1);
-
+// обводка
+ --outline-border-color:rgba(220, 86, 197, 0.3);
 
 }
+
 
 
 
