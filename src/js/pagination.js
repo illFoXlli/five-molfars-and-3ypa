@@ -1,7 +1,7 @@
 import Pagination from 'tui-pagination';
 import 'tui-pagination/dist/tui-pagination.css';
 
-const pageMenu = function (total) {
+export const pageMenu = function (total) {
    const container = document.getElementById('pagination');
    const options = {
       totalItems: total,
@@ -13,4 +13,4 @@ const pageMenu = function (total) {
    const pagination = new Pagination(container, options);
    return pagination;
 };
-pageMenu(200)
+pageMenu(1000)
