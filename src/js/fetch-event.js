@@ -14,5 +14,7 @@ export const fetchServer = (page, keyword, countryCode) => {
   //   if (countryCode.length) {
   //     params.countryCode = countryCode;
   //   }
-  return axios.get(`${BASE_URL}`, { params });
+  return axios
+    .get(`${BASE_URL}`, { params })
+    .then(rec => rec.data._embedded.events);
 };
