@@ -1,43 +1,108 @@
 .btn-up {
-  width: 40px;
-  height: 40px;
-  opacity: 1;
-  background-image: url(..//favicon/apple-touch-icon.png);
-  background-size: cover;
-  z-index: 100;
-  cursor: pointer;
-  background-color: transparent;
-  border: 0;
-  border-radius: 50%;
-  justify-content: center;
-  align-items: center;
-  padding: 0;
-  transition-property: opacity, background-color, box-shadow, -webkit-box-shadow;
-  transition-duration: 1s;
-  display: flex;
-  position: fixed;
-  bottom: 5px;
-  right: 10px;
-  @media screen and (min-width: 768px) {
-    width: 60px;
-    height: 60px;
-    bottom: 30px;
-  }
-  @media screen and (min-width: 1280px) {
-    width: 80px;
-    height: 80px;
-    right: 40px;
-  }
+  // width: 40px;
+  // height: 40px;
+  // opacity: 1;
+  // background-image: url(..//favicon/apple-touch-icon.png);
+  // background-size: cover;
+  // z-index: 100;
+  // cursor: pointer;
+  // background-color: transparent;
+  // border: 0;
+  // border-radius: 50%;
+  // justify-content: center;
+  // align-items: center;
+  // padding: 0;
+  // transition-property: opacity, background-color, box-shadow, -webkit-box-shadow;
+  // transition-duration: 1s;
+  // display: flex;
+  // position: fixed;
+  // bottom: 5px;
+  // right: 10px;
+
+  // background-color: transparent;
+  // border: 2px solid #dc56c5;
+  // border-radius: 50%;
+  // bottom: 80px;
+  // cursor: pointer;
+  // opacity: 1;
+  // height: 50px;
+  // position: fixed;
+  // right: 20px;
+  // width: 50px;
+  // @media screen and (min-width: 768px) {
+  //   width: 60px;
+  //   height: 60px;
+  //   bottom: 30px;
+  // }
+  // @media screen and (min-width: 1280px) {
+  //   width: 80px;
+  //   height: 80px;
+  //   right: 40px;
+  // }
 }
 .btn-hidden {
   opacity: 0;
 }
-.btn-up__icon {
-  width: 40%;
-  height: 40%;
-  border-top: 3px solid rgba(46, 37, 32, 0.7);
-  border-right: 3px solid rgba(46, 37, 32, 0.7);
-  border-radius: 3px;
-  margin-bottom: 8px;
-  transform: rotate(-45deg);
+// .btn-up__icon {
+//   width: 40%;
+//   height: 40%;
+//   border-top: 3px solid rgba(46, 37, 32, 0.7);
+//   border-right: 3px solid rgba(46, 37, 32, 0.7);
+//   border-radius: 3px;
+//   margin-bottom: 8px;
+//   transform: rotate(-45deg);
+// }
+
+.btn-up {
+  position: fixed;
+  bottom: 80px;
+  right: 20px;
+  @media screen and (min-width: 768px) {
+    bottom: 27px;
+    right: 60px;
+  }
+  cursor: pointer;
+  opacity: 1;
+  width: 50px;
+  height: 50px;
+  background-color: transparent;
+  border-radius: 50%;
+  border: 2px solid #dc56c5;
+  &:hover {
+    box-shadow: 0px 0px 5px 4px rgba(220, 86, 197, 0.5);
+  }
+  &:before,
+  &:after {
+    content: '';
+    position: absolute;
+    left: 28%;
+    top: 5%;
+    box-sizing: border-box;
+    width: 20px;
+    height: 20px;
+    border-left: 2px solid #dc56c5;
+    border-bottom: 2px solid #dc56c5;
+    animation: hand 2s linear infinite;
+  }
+  &:after {
+    animation: hand 2s linear infinite -1s;
+  }
+}
+
+@keyframes hand {
+  0% {
+    opacity: 0;
+    transform: translate(0, 28px) rotate(135deg);
+  }
+  50% {
+    opacity: 1;
+    transform: translate(0, 17px) rotate(135deg);
+  }
+  100% {
+    opacity: 0;
+    transform: translate(0, 6px) rotate(135deg);
+  }
+}
+.btn-hidden {
+  opacity: 0;
 }
