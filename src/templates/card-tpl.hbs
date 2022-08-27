@@ -1,9 +1,9 @@
  {{#each this}}
- <ul id="1" class="event">
+ <ul id="{{url}}" class="event">
         <li class="event__img">
-          <img src={{this.url}} alt="Sports event" />
+          <img src={{images.[0].url}} alt="Sports event" />
         </li>
-        <li class="event__title"><h2>MONATIK</h2></li>
+        <li class="event__title"><h2>{{name}}</h2></li>
         <li class="event__start"><span>2022-02-02</span></li>
         <li class="event__place">
           <svg width="10" height="16">
@@ -13,3 +13,4 @@
         </li>
 </ul>
 {{/each}}
+

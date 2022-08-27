@@ -3,8 +3,8 @@ import renderCard from '../templates/card-tpl.hbs';
 
 const eventsList = document.querySelector('.events');
 
-fetchServer(6, 'cat', 'US').then(rec => {
-  //console.log(rec[0].images[0].url);
+fetchServer(6, '', 'US').then(rec => {
+  console.log(rec);
   eventsList.innerHTML += renderCard(rec);
 });
 
