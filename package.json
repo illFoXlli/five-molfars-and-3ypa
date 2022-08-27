@@ -20,7 +20,6 @@
     "url": "https://github.com/goitacademy/five-molfars-and-3ypa/issues"
   },
   "dependencies": {
-    "axios": "^0.27.2",
     "modern-normalize": "^1.1.0"
   },
   "devDependencies": {
