@@ -35,3 +35,8 @@ img {
   clip: rect(0 0 0 0);
   overflow: hidden;
 }
+body {
+  background-color: var(--black-bg-color);
+  color: var(--pink-text-color);
+  font-family: var(--primary-text-font);
+}
