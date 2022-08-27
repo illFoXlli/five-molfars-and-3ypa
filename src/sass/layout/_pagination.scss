@@ -135,10 +135,11 @@
             height: 337px;
         }
     }
-
+    &__title {
+        margin-top: 8px;
+    }
     &__title > h2 {
         width: 130px;
-        margin-top: 8px;
         font-weight: 700;
         font-size: 14px;
         line-height: calc(17.07 / 14);
@@ -154,11 +155,13 @@
             width: 288px;
         }
     }
+    &__start {
+        margin-top: 4px;
+    }
     &__start > span {
         margin-right: auto;
         margin-left: auto;
         color: var(--primary-white-text-color);
-        margin-top: 8px;
         font-size: 14px;
         line-height: calc(17.07 / 14);
         font-style: 400;
@@ -172,15 +175,16 @@
         }
     }
     &__place {
-        // display: flex;
+        display: flex;
         justify-content: center;
         align-items: center;
-        margin-top: 5px;
+        margin-top: 4px;
 
         color: var(--primary-white-text-color);
         & > svg {
             width: 6px;
             height: 9px;
+            fill: var(--primary-white-text-color);
 
             @media screen and(min-width: 768px) {
                 width: 9px;
