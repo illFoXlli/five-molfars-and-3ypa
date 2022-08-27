@@ -1,4 +1,5 @@
 @import "~node_modules/modern-normalize/modern-normalize.css";
+@import "./../utils/variables";
 html {
     scroll-behavior: smooth;
 }
@@ -34,4 +35,16 @@ img {
     clip-path: inset(100%);
     clip: rect(0 0 0 0);
     overflow: hidden;
+}
+
+body {
+    font-family: var(--main-montserrat-fond);
+    background-color: var(--black-bg-color);
+
+    color: var(--pink-text-color);
+    font-style: normal;
+    margin: 0;
+    padding: 0;
+    border: 1px solid #000000;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
