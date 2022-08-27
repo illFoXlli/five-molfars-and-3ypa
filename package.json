@@ -1,36 +1,74 @@
 {
 
   "name": "five-molfars-and-3ypa",
+
   "version": "1.0.0",
 
   "description": "",
+
   "homepage": "https://goitacademy.github.io/five-molfars-and-3ypa",
+
   "scripts": {
+
     "start": "parcel src/*.html",
+
     "build": "parcel build src/*.html --public-url /five-molfars-and-3ypa/"
+
   },
+
   "repository": {
+
     "type": "git",
+
     "url": "git+https://github.com/goitacademy/five-molfars-and-3ypa.git"
+
   },
+
   "keywords": [],
+
   "author": "Alexander Repeta <alexander.repeta@gmail.com>",
+
   "license": "ISC",
+
   "bugs": {
+
     "url": "https://github.com/goitacademy/five-molfars-and-3ypa/issues"
+
   },
+
   "dependencies": {
+
+    "axios": "^0.27.2",
+
     "custom-select": "^1.1.15",
+
     "modern-normalize": "^1.1.0"
+
   },
+
   "devDependencies": {
+
     "@parcel/packager-raw-url": "^2.6.0",
+
     "@parcel/transformer-sass": "^2.6.0",
+
     "@parcel/transformer-webmanifest": "^2.6.0",
+
+    "buffer": "^6.0.3",
+
     "parcel": "^2.6.0",
+
     "parcel-reporter-clean-dist": "^1.0.4",
+
     "parcel-transformer-hbs": "^1.0.4",
-    "posthtml-include": "^1.7.4"
+
+    "posthtml-include": "^1.7.4",
+
+    "process": "^0.11.10"
+
   },
+
   "browserslist": "> 0.5%, last 2 versions, not dead"
+
 }
+
