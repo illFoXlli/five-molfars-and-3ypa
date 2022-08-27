@@ -1,0 +1,61 @@
+.footer {
+  color: #939393;
+
+  padding-top: 30px;
+  padding-bottom: 24px;
+
+  @media screen and (min-width: 768px) {
+    padding-top: 30px;
+    padding-bottom: 40px;
+  }
+
+  @media screen and (min-width: 1280px) {
+    padding-top: 30px;
+    padding-bottom: 37px;
+  }
+}
+
+.footer__txt {
+  display: block;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 1.21;
+  text-align: center;
+
+  @media screen and (min-width: 768px) {
+    font-size: 16px;
+    line-height: 1.25;
+  }
+}
+
+.footer__heart {
+  animation: heartbeat 1s infinite;
+  display: inline-block;
+  color: red;
+  font-size: 17px;
+}
+
+@keyframes heartbeat {
+  0% {
+    transform: scale(1);
+  }
+
+  20% {
+    transform: scale(1.25);
+  }
+
+  40% {
+    transform: scale(1.5);
+  }
+}
+
+.footer__link {
+  text-decoration: none;
+  color: #939393;
+  display: inline-block;
+}
+
+.footer__link:hover,
+.footer__link:focus {
+  color: red;
+}
