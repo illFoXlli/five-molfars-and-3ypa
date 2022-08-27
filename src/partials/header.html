@@ -1,11 +1,11 @@
-<header class="header container">
+<header class="header">
   <h1 class="header__title">FIND BEST EVENTS AROUND THE WORLD</h1>
-  <form class="header__form" action="">
-    <label>
-      <input type="text" placeholder="Start searching" />
+  <form id="form" class="header__form">
+    <label class="search__block">
+      <input class="search__input" type="text" placeholder="Start searching" />
     </label>
-    <label>
-      <select id="search-country-js"></select>
-    </label>
+    <select class="search__select" id="searchCountries">
+      <option class="search__option">Choose country</option>
+    </select>
   </form>
 </header>
