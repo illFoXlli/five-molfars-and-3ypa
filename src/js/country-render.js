@@ -9,3 +9,12 @@ form.lastElementChild.insertAdjacentHTML(
   renderCountry(countryList)
 );
 const mySelects = customSelect('select');
+
+const customContainer = document.querySelector('.custom-select-opener');
+
+customContainer.addEventListener('focus', () => {
+  document.body.classList.add('no-scroll');
+  customContainer.addEventListener('blur', () => {
+    document.body.classList.remove('no-scroll');
+  });
+});
