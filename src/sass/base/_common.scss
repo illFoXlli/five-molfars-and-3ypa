@@ -1,7 +1,8 @@
-@import "~node_modules/modern-normalize/modern-normalize.css";
+@import '~node_modules/modern-normalize/modern-normalize.css';
 
 html {
   scroll-behavior: smooth;
+  user-select: none;
 }
 
 h1,
@@ -43,7 +44,6 @@ body {
   color: var(--pink-text-color);
   font-family: var(--primary-text-font);
 
-
   // phone
   @media screen and (max-width: 767.98px) {
     background-image: url(../images/main-bg/bg-body-phone.png);
@@ -62,13 +62,10 @@ body {
   // deckstop
 
   @media screen and (min-width: 1280px) {
-
     background-image: url(../images/main-bg/bg-body-deckstop.png);
     background-repeat: no-repeat;
     background-position: center top;
   }
-
 }
-
 
 // background top

@@ -1,13 +1,6 @@
-.tui-pagination * {
-  -moz-user-select: none;
-  -webkit-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-}
-
 .tui-pagination {
-  height: 28px;
-  margin: 14px 0 12px;
+  margin: 0;
+  height: 30px;
   line-height: normal;
   text-align: center;
   font-size: 0;
@@ -16,68 +9,28 @@
 .tui-pagination .tui-page-btn {
   display: inline-block;
   position: relative;
-  width: 28px;
   padding: 8px 0 6px;
-  margin-left: 0;
-  color: #333;
   font-size: 12px;
   font-weight: normal;
   line-height: 1;
   text-decoration: none;
   vertical-align: middle;
-  border: 1px solid #ddd;
-  border-width: 1px 0;
+
+  width: 30px;
+  height: 30px;
+  color: white;
+  margin-left: 2px;
+  margin-right: 2px;
+  font-size: 14px;
+  border: 1px solid transparent;
+
+  &:hover {
+    border: 1px solid #dc56c5;
+    border-radius: 10px 0px;
+    background: none;
+    cursor: pointer;
+  }
 }
-
-// .tui-pagination .tui-page-btn:hover {
-//   background-color: #f4f4f4;
-// }
-
-// .tui-pagination .tui-is-selected,
-// .tui-pagination strong {
-//   color: #fff;
-//   background: #4b96e6;
-//   border-color: #4b96e6;
-//   cursor: default;
-// }
-
-// .tui-pagination .tui-is-selected:hover {
-//   background-color: #4b96e6;
-// }
-
-// .tui-pagination .tui-first-child.tui-is-selected,
-// .tui-pagination strong.tui-first-child {
-//   margin-left: 0;
-// }
-
-// .tui-pagination .tui-first,
-// .tui-pagination .tui-prev,
-// .tui-pagination .tui-next,
-// .tui-pagination .tui-last,
-// .tui-pagination .tui-prev-is-ellip,
-// .tui-pagination .tui-next-is-ellip {
-//   overflow: hidden;
-//   height: 26px;
-//   padding: 0;
-//   font-size: 0;
-//   line-height: 26px;
-//   white-space: nowrap;
-//   font-weight: normal;
-//   border: 1px solid #ddd;
-// }
-
-// .tui-pagination .tui-prev-is-ellip {
-//   border-right: 0;
-// }
-
-// .tui-pagination .tui-next-is-ellip {
-//   border-left: 0;
-// }
-
-// .tui-pagination .tui-first + .tui-prev,
-// .tui-pagination .tui-next + .tui-last {
-//   border-left: 0;
-// }
 
 .tui-pagination .tui-ico-first,
 .tui-pagination .tui-ico-prev,
@@ -88,20 +41,6 @@
   vertical-align: middle;
   font-size: 0px;
 }
-
-// .tui-pagination .tui-prev-is-ellip,
-// .tui-pagination .tui-next-is-ellip {
-//   padding: 0;
-//   line-height: 1;
-// }
-
-// .tui-pagination .tui-prev {
-//   margin-right: 10px;
-// }
-
-// .tui-pagination .tui-next {
-//   margin-left: 10px;
-// }
 
 .tui-pagination .tui-ico-first {
   width: 11px;
@@ -131,11 +70,6 @@
   background-position: -13px -12px;
 }
 
-// .tui-page-btn.tui-prev-is-ellip.tui-first-child,
-// .tui-page-btn.tui-next-is-ellip.tui-last-child {
-//   display: none;
-// }
-
 .tui-pagination .tui-is-disabled .tui-ico-prev {
   // background-position: -26px -12px;
   background-position: -26px 0px;
@@ -155,74 +89,26 @@
   background-position: 0px -12px;
   // background-position: -13px -12px;
 }
-
+.tui-pagination .tui-is-disabled:hover {
+  border-color: transparent;
+}
 .tui-page-inputs {
   display: inline-block;
   vertical-align: top;
 }
 
-// .tui-page-inputs .tui-page-input {
-//   display: inline-block;
-//   width: 10px;
-//   height: 12px;
-//   padding: 8px 0 6px;
-//   font-size: 12px;
-//   text-align: center;
-//   color: #333;
-//   border: 0;
-//   outline: none;
-// }
-
-// .tui-page-inputs .tui-page-current {
-//   color: #4b96e6;
-// }
-
-// .tui-page-separator {
-//   display: inline-block;
-//   font-size: 12px;
-//   height: 12px;
-//   padding: 8px 0 6px;
-//   vertical-align: top;
-// }
-// .tui-ico-ellip {
-//   position: absolute;
-//   top: 5px;
-//   left: 10px;
-// }
-#pagination.tui-pagination {
-  height: 30px;
-  margin: 0;
-
-  .tui-page-btn {
-    width: 30px;
-    height: 30px;
-    color: white;
-    border: none;
-    margin-left: 1px;
-    margin-right: 1px;
-    font-size: 14px;
-    border: 1px solid transparent;
-
-    &:hover {
-      border: 1px solid #dc56c5;
-      border-radius: 10px 0px;
-      background: none;
-      cursor: pointer;
-    }
-  }
-}
-
 #pagination.tui-pagination {
   .tui-page-btn.tui-is-selected {
+    transform: scale(1.18);
     color: black;
     font-weight: bolder;
     border: 1px solid #dc56c5;
     border-radius: 10px 0px;
-    cursor: default;
+    cursor: pointer;
     background-color: #dc56c5;
     box-shadow: 0px 0px 5px 4px rgba(220, 86, 197, 0.5);
     font-size: 14px;
-    transform: scale(1.2);
+
     width: 26px;
     height: 32px;
   }
