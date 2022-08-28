@@ -1,4 +1,5 @@
 import Pagination from 'tui-pagination';
+import { key } from '../js/fetch-event';
 
 export const pageMenu = function (total) {
    const container = document.getElementById('pagination');
@@ -10,8 +11,16 @@ export const pageMenu = function (total) {
       centerAlign: true,
    };
    const pagination = new Pagination(container, options);
+
+   // pagination.on('beforeMove', async function (eventData) {
+   //   const page = eventData.page;
+   //   console.log(eventData);
+   // });
+   console.log(options);
+
    return pagination;
 };
+
 pageMenu(100)
 
 // const pagination = pageMenu(data.page.totalElements / 16);
@@ -25,3 +34,4 @@ pageMenu(100)
 //     console.log(err);
 //   }
 // });
+
