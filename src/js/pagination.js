@@ -1,5 +1,4 @@
 import Pagination from 'tui-pagination';
-import 'tui-pagination/dist/tui-pagination.css';
 
 export const pageMenu = function (total) {
    const container = document.getElementById('pagination');
@@ -13,4 +12,16 @@ export const pageMenu = function (total) {
    const pagination = new Pagination(container, options);
    return pagination;
 };
-pageMenu(1000)
+pageMenu(100)
+
+// const pagination = pageMenu(data.page.totalElements / 16);
+// pagination.on('beforeMove', async function (eventData) {
+//   const page = eventData.page;
+//   try {
+//     const { data } = await fetchCardsByName(query, locale, page);
+//     const result = data._embedded;
+//     conteinerEl.innerHTML = cardsRender(result.events);
+//   } catch (err) {
+//     console.log(err);
+//   }
+// });
