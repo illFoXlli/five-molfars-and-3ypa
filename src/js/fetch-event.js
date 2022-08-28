@@ -10,14 +10,20 @@ let keyword = 'concert';
 let countryCode = '';
 let numberCardByPage = 16;
 let totalPages = 100;
+let startPage = 1;
 
 const eventsList = document.querySelector('.events');
 
-const key = {
-  page: 1,
+export let key = {
+  page: startPage,
   keyword,
   countryCode,
 };
+// let key1 = {
+//   page: 1,
+//   keyword,
+//   countryCode,
+// };
 
 form.addEventListener('submit', onSubmit);
 
@@ -26,27 +32,37 @@ function onSubmit(event) {
   fetchServer(key);
   key.keyword = form.elements.searchQuery.value;
   key.countryCode = form.elements.chooseQuery.value;
+  // key1.keyword = form.elements.searchQuery.value;
+  // key1.countryCode = form.elements.chooseQuery.value;
 }
 
 export const fetchServer = ({ page, keyword, countryCode }) => {
   const params = {
-    apikey: API_KEY,
-    countryCode: countryCode,
+    countrysCode: countryCode,
     keyword: keyword,
-    size: 16,
+    size: 8,
     page: page,
+    apikey: API_KEY,
   };
-  if (localStorage.getItem(JSON.stringify(key)) === null) {
+
+  if (sessionStorage.getItem(JSON.stringify(key)) === null) {
     return axios.get(`${BASE_URL}`, { params }).then(rec => {
-      totalPages = rec.data.page.totalElements / 16;
+      // sessionStorage.setItem(JSON.stringify(key1), JSON.stringify(rec));
+      sessionStorage.setItem(JSON.stringify(key), JSON.stringify(rec));
+      totalPages = rec.data.page.totalElements;
+
+      console.log(totalPages);
 
       pageMenu(totalPages).on('beforeMove', async function (eventData) {
         let pages = eventData.page;
 
         key.page = pages;
-
+        console.log('fffff111111111111111111111111111111111111111111111111');
+        console.log(key);
         try {
           const { data } = await fetchServer(key);
+
+          console.log(data);
 
           let LSElements = data._embedded.events;
           eventsList.innerHTML = renderCard(LSElements);
@@ -54,7 +70,6 @@ export const fetchServer = ({ page, keyword, countryCode }) => {
         } catch (err) {
           console.log(err);
         }
-        localStorage.setItem(JSON.stringify(key), JSON.stringify(rec));
       });
 
       // let LS = JSON.parse(localStorage.getItem(JSON.stringify(key)));
@@ -62,25 +77,31 @@ export const fetchServer = ({ page, keyword, countryCode }) => {
       eventsList.innerHTML = renderCard(LSElements);
     });
   } else {
-    let data = localStorage.getItem(JSON.stringify(key));
+    let data = sessionStorage.getItem(JSON.stringify(key));
+    totalPages = JSON.parse(data).data.page.totalElements;
 
-    // totalPages = JSON.parse(data).page.totalElements;
+    pageMenu(totalPages).on('beforeMove', async function (eventData) {
+      let pages = eventData.page;
+      key.page = pages;
 
-    // pageMenu(totalPages).on('beforeMove', async function (eventData) {
-    //   const page = eventData.page;
-    //   key.page = page;
-    //   try {
-    //     const { data } = await fetchServer(key);
-    //     const result = data._embedded;
-    //   } catch (err) {
-    //     console.log(err);
-    //   }
-    // });
-    // return data;
+      let LS = JSON.parse(sessionStorage.getItem(JSON.stringify(key)));
+      console.log('222222222222222222222222222222222');
+      console.log(key);
+      try {
+        console.log(LS);
+        let LSElements = LS.data._embedded.events;
+        eventsList.innerHTML = renderCard(LSElements);
+      } catch (err) {
+        console.log(err);
+      }
+    });
+
+    return data;
   }
 };
-fetchServer(key);
 
+fetchServer(key);
+console.log(key);
 // totalPages = fetchServer(key);
 // console.log(totalPages);
 // pageMenu(totalPages).on('beforeMove', async function (eventData) {
