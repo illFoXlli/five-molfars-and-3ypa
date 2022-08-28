@@ -8,7 +8,7 @@ export const pageMenu = function (total) {
     totalItems: total,
     itemsPerPage: 16,
     visiblePages: 5,
-    page: 1,
+    page: key.page,
     centerAlign: true,
   };
   const pagination = new Pagination(container, options);
@@ -24,7 +24,7 @@ export const pageMenu = function (total) {
   //   //   console.log(err);
   //   // }
   // });
-  console.log(options);
+  // console.log(options);
 
   return pagination;
 };

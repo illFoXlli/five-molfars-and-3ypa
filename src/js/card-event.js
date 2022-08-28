@@ -3,10 +3,8 @@ import renderCard from '../templates/card-tpl.hbs';
 
 // const eventsList = document.querySelector('.events');
 
-// let LS = JSON.parse(localStorage.getItem(JSON.stringify(key)));
-
+// let LS = JSON.parse(sessionStorage.getItem(JSON.stringify(key)));
 // let LSElements = LS.data._embedded.events;
+// eventsList.innerHTML = renderCard(LSElements);
 
 // console.log(LSElements);
-
-// eventsList.innerHTML = renderCard(LSElements);
