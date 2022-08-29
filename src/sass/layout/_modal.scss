@@ -11,16 +11,12 @@
   overflow-y: scroll;
   padding: 100px 0;
 
-<<<<<<< Updated upstream
-  transition: opacity 300ms cubic-bezier(0.4, 0, 0.2, 1);
-=======
-  overflow: hidden;
-  opacity: 1;
-  visibility: visible;
-  pointer-events: initial;
+  // overflow: hidden;
+  // opacity: 1;
+  // visibility: visible;
+  // pointer-events: initial;
 
-  transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1);
->>>>>>> Stashed changes
+  transition: opacity 300ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .modal {
@@ -127,6 +123,7 @@
     color: var(--pink-text-color);
     @media screen and (min-width: 768px) {
       text-align: left;
+      margin-bottom: 7px;
     }
 
     @media screen and (min-width: 1280px) {
@@ -230,6 +227,9 @@
 // }
 .secondP {
   margin-top: 3px;
+  @media screen and (min-width: 1280px) {
+    margin-top: 5px;
+  }
 }
 
 .btn-wrapper {
@@ -239,6 +239,7 @@
     justify-content: left;
   }
 }
+
 .btn-wrapper-more {
   display: flex;
   justify-content: center;
