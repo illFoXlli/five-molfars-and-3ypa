@@ -3,20 +3,27 @@ import { key } from './fetch-event';
 
 const closeModalBtn = document.querySelector('[data-modal-close]');
 const backdropModal = document.querySelector('[data-modal]');
-const cardOnClick = document.querySelector('.event');
+// const cardOnClick = document.querySelector('.event');
+const boxOnClick = document.querySelector('.events');
 
 closeModalBtn.addEventListener('click', toggleModal);
-cardOnClick.addEventListener('click', onCardClick);
+// cardOnClick.addEventListener('click', onCardClick);
+// cardOnClick.addEventListener('click', onCardClick);
+boxOnClick.addEventListener('click', onCardClick);
 
 function toggleModal() {
   backdropModal.classList.toggle('is-hidden');
   document.body.classList.remove('no-scroll');
 }
 
-function onCardClick() {
-  console.log('111111111111');
-  backdropModal.classList.toggle('is-hidden');
-  document.body.classList.add('no-scroll');
+function onCardClick(event) {
+  console.log(event.target);
+  if (event.target.nodeName === 'DIV') {
+    return;
+  } else if (event.target.nodeName !== 'DIV') {
+    backdropModal.classList.toggle('is-hidden');
+    document.body.classList.add('no-scroll');
+  }
 }
 
 const x = getFromSS(key);
