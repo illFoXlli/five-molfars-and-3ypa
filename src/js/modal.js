@@ -3,11 +3,20 @@ import { key } from './fetch-event';
 
 const closeModalBtn = document.querySelector('[data-modal-close]');
 const backdropModal = document.querySelector('[data-modal]');
+const cardOnClick = document.querySelector('.event');
 
 closeModalBtn.addEventListener('click', toggleModal);
+cardOnClick.addEventListener('click', onCardClick);
 
 function toggleModal() {
   backdropModal.classList.toggle('visually-hidden');
+  document.body.classList.remove('no-scroll');
+}
+
+function onCardClick() {
+  console.log('111111111111');
+  backdropModal.classList.toggle('visually-hidden');
+  document.body.classList.add('no-scroll');
 }
 
 const x = getFromSS(key);
