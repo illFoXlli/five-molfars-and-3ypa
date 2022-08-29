@@ -74,6 +74,8 @@ function setPaginationServer(totalPages, key) {
       spinerOff();
     } catch (err) {
       console.log(err);
+      spinerOff();
+      sessionStorage.clear();
     }
   });
 }
@@ -86,6 +88,8 @@ function setPaginationLS(totalPages, key) {
       renderElems(data);
     } catch (err) {
       console.log(err);
+      spinerOff();
+      sessionStorage.clear();
     }
   });
 }
