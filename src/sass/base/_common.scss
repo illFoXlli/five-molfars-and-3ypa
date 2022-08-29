@@ -1,4 +1,4 @@
-@import '~node_modules/modern-normalize/modern-normalize.css';
+@import "~node_modules/modern-normalize/modern-normalize.css";
 
 html {
   scroll-behavior: smooth;
@@ -36,6 +36,15 @@ img {
   clip-path: inset(100%);
   clip: rect(0 0 0 0);
   overflow: hidden;
+}
+
+.is-hidden {
+  pointer-events: none;
+  opacity: 0;
+
+  & .modal {
+    transform: scale(0);
+  }
 }
 
 body {
