@@ -1,4 +1,4 @@
-// import { fetchServer } from './fetch-event';
+import { fetchServer } from './fetch-event';
 
 const closeModalBtn = document.querySelector('[data-modal-close]');
 const backdropModal = document.querySelector('[data-modal]');

@@ -1,13 +1,7 @@
-import {
-  spinerOn,
-  spinerOff,
-  getFromSS,
-  renderElems,
-  saveToSS,
-  renderElems,
-} from '../js/utils.js';
+import { spinerOn, spinerOff, getFromSS, saveToSS } from '../js/utils.js';
 import axios from 'axios';
 import { pageMenu } from '../js/pagination';
+import renderCard from '../templates/card-tpl.hbs';
 
 const BASE_URL = 'https://app.ticketmaster.com/discovery/v2/events';
 const API_KEY = 'unEzXyPGRdZtlW4MZOT74rfieLb91xjQ';
@@ -67,16 +61,16 @@ const fetchServer = ({ page, keyword, countryCode, numberCardByPage }) => {
 
 function setPaginationServer(totalPages, key) {
   pageMenu(totalPages).on('beforeMove', async function (eventData) {
-    // spinerOn();
+    spinerOn();
     let pages = eventData.page;
     key.page = pages;
     try {
       const data = await fetchServer(key);
       renderElems(data);
-      // spinerOff();
+      spinerOff();
     } catch (err) {
       console.log(err);
-      // spinerOff();
+      spinerOff();
       sessionStorage.clear();
     }
   });
@@ -90,7 +84,7 @@ function setPaginationLS(totalPages, key) {
       renderElems(data);
     } catch (err) {
       console.log(err);
-      // spinerOff();
+      spinerOff();
       sessionStorage.clear();
     }
   });
@@ -105,3 +99,8 @@ function setTotalPage(number) {
 }
 
 fetchServer(key);
+
+export function renderElems(data) {
+  let LSElements = data._embedded.events;
+  eventsList.innerHTML = renderCard(LSElements);
+}
