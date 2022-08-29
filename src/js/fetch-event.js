@@ -6,64 +6,61 @@ const BASE_URL = 'https://app.ticketmaster.com/discovery/v2/events';
 const API_KEY = 'unEzXyPGRdZtlW4MZOT74rfieLb91xjQ';
 const form = document.querySelector('#form');
 
-let keyword = 'concert';
-let countryCode = '';
+let keyword = 'vs';
+let countryCode = 'US';
 let numberCardByPage = 16;
 let totalPages = 100;
 let startPage = 1;
 
 const eventsList = document.querySelector('.events');
 
+form.addEventListener('submit', onSubmit);
+
 export let key = {
   page: startPage,
   keyword,
   countryCode,
+  numberCardByPage,
 };
-// let key1 = {
-//   page: 1,
-//   keyword,
-//   countryCode,
-// };
-
-form.addEventListener('submit', onSubmit);
 
 function onSubmit(event) {
   event.preventDefault();
-  fetchServer(key);
   key.keyword = form.elements.searchQuery.value;
   key.countryCode = form.elements.chooseQuery.value;
+  key.page = 1;
+  fetchServer(key);
 }
 
-export const fetchServer = ({ page, keyword, countryCode }) => {
+const fetchServer = ({ page, keyword, countryCode, numberCardByPage }) => {
   const params = {
     apikey: API_KEY,
     countrysCode: countryCode,
     keyword: keyword,
-    size: 16,
-    page: page,
+    size: numberCardByPage,
+    page,
   };
 
-  if (getFromLS(key) === null) {
+  if (getFromSS(key) === null) {
     console.log('=====IF=====');
-    return axios.get(`${BASE_URL}`, { params }).then(rec => {
-      saveToLS(key, rec);
-      totalPages = rec.data.page.totalElements;
-      renderElems(rec.data);
+    return axios.get(`${BASE_URL}`, { params }).then(res => {
+      saveToSS(key, res);
+      setTotalPage(res.data.page.totalElements);
+      renderElems(res.data);
       setPaginationServer(totalPages, key);
-
-      return rec.data;
+      return res.data;
     });
   } else {
     console.log('=====ELSE=====');
-    let rec = getFromLS(key);
+    let res = getFromSS(key);
+    setTotalPage(res.data.page.totalElements);
+    renderElems(res.data);
     setPaginationLS(totalPages, key);
-    // renderElems(rec);
-    return Promise.resolve(rec.data);
+    return Promise.resolve(res.data);
   }
 };
 
-function saveToLS(key, data) {
-  sessionStorage.setItem(JSON.stringify(key), JSON.stringify(data));
+function saveToSS(key, res) {
+  sessionStorage.setItem(JSON.stringify(key), JSON.stringify(res));
 }
 
 function setPaginationServer(totalPages, key) {
@@ -98,22 +95,25 @@ function renderElems(data) {
   eventsList.innerHTML = renderCard(LSElements);
 }
 
-export function getFromLS(key) {
+function spinerOff() {
+  return preloader.classList.add('visually-hidden');
+}
+
+function spinerOn() {
+  return preloader.classList.remove('visually-hidden');
+}
+
+function setTotalPage(number) {
+  if (number < 960) {
+    totalPages = number;
+  } else {
+    totalPages = 960;
+  }
+}
+
+export function getFromSS(key) {
   let data = sessionStorage.getItem(JSON.stringify(key));
   return JSON.parse(data);
 }
 
-function getToLSTotalPages(key) {
-  let data = sessionStorage.getItem(JSON.stringify(key));
-  totalPages = JSON.parse(data).data.page.totalElements;
-  return totalPages;
-}
-
 fetchServer(key);
-
-function spinerOff() {
-  return preloader.classList.add('visually-hidden');
-}
-function spinerOn() {
-  return preloader.classList.remove('visually-hidden');
-}

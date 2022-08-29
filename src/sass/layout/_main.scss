@@ -98,14 +98,17 @@
         line-height: calc(17.07 / 14);
         margin-right: auto;
         margin-left: auto;
+        min-height: 70px;
 
         @media screen and (min-width: 768px) {
             width: 152px;
             font-size: 16px;
             line-height: calc(19.5 / 16);
+            min-height: 80px;
         }
         @media screen and (min-width: 1280px) {
             width: 288px;
+            min-height: 40px;
         }
     }
     &__start {
