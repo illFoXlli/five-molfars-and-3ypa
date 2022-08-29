@@ -42,36 +42,39 @@ export const fetchServer = ({ page, keyword, countryCode }) => {
     size: 16,
     page: page,
   };
+
   if (getFromLS(key) === null) {
     console.log('=====IF=====');
     return axios.get(`${BASE_URL}`, { params }).then(rec => {
       saveToLS(key, rec);
       totalPages = rec.data.page.totalElements;
+      renderElems(rec.data);
       setPaginationServer(totalPages, key);
-      //renderElems(rec);
+
       return rec.data;
     });
   } else {
     console.log('=====ELSE=====');
     let rec = getFromLS(key);
     setPaginationLS(totalPages, key);
-    //renderElems(rec);
+    // renderElems(rec);
     return Promise.resolve(rec.data);
   }
 };
 
 function saveToLS(key, data) {
-  localStorage.setItem(JSON.stringify(key), JSON.stringify(data));
+  sessionStorage.setItem(JSON.stringify(key), JSON.stringify(data));
 }
 
 function setPaginationServer(totalPages, key) {
   pageMenu(totalPages).on('beforeMove', async function (eventData) {
+    spinerOn();
     let pages = eventData.page;
     key.page = pages;
     try {
       const data = await fetchServer(key);
-      console.log(data);
       renderElems(data);
+      spinerOff();
     } catch (err) {
       console.log(err);
     }
@@ -95,15 +98,22 @@ function renderElems(data) {
   eventsList.innerHTML = renderCard(LSElements);
 }
 
-function getFromLS(key) {
-  let data = localStorage.getItem(JSON.stringify(key));
+export function getFromLS(key) {
+  let data = sessionStorage.getItem(JSON.stringify(key));
   return JSON.parse(data);
 }
 
 function getToLSTotalPages(key) {
-  let data = localStorage.getItem(JSON.stringify(key));
+  let data = sessionStorage.getItem(JSON.stringify(key));
   totalPages = JSON.parse(data).data.page.totalElements;
   return totalPages;
 }
 
 fetchServer(key);
+
+function spinerOff() {
+  return preloader.classList.add('visually-hidden');
+}
+function spinerOn() {
+  return preloader.classList.remove('visually-hidden');
+}
