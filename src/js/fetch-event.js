@@ -1,18 +1,24 @@
+import {
+  spinerOn,
+  spinerOff,
+  getFromSS,
+  renderElems,
+  saveToSS,
+  renderElems,
+} from '../js/utils.js';
 import axios from 'axios';
 import { pageMenu } from '../js/pagination';
-import renderCard from '../templates/card-tpl.hbs';
 
 const BASE_URL = 'https://app.ticketmaster.com/discovery/v2/events';
 const API_KEY = 'unEzXyPGRdZtlW4MZOT74rfieLb91xjQ';
 const form = document.querySelector('#form');
+const eventsList = document.querySelector('.events');
 
 let keyword = 'vs';
 let countryCode = 'US';
 let numberCardByPage = 16;
 let totalPages = 100;
 let startPage = 1;
-
-const eventsList = document.querySelector('.events');
 
 form.addEventListener('submit', onSubmit);
 
@@ -59,22 +65,18 @@ const fetchServer = ({ page, keyword, countryCode, numberCardByPage }) => {
   }
 };
 
-function saveToSS(key, res) {
-  sessionStorage.setItem(JSON.stringify(key), JSON.stringify(res));
-}
-
 function setPaginationServer(totalPages, key) {
   pageMenu(totalPages).on('beforeMove', async function (eventData) {
-    spinerOn();
+    // spinerOn();
     let pages = eventData.page;
     key.page = pages;
     try {
       const data = await fetchServer(key);
       renderElems(data);
-      spinerOff();
+      // spinerOff();
     } catch (err) {
       console.log(err);
-      spinerOff();
+      // spinerOff();
       sessionStorage.clear();
     }
   });
@@ -88,23 +90,10 @@ function setPaginationLS(totalPages, key) {
       renderElems(data);
     } catch (err) {
       console.log(err);
-      spinerOff();
+      // spinerOff();
       sessionStorage.clear();
     }
   });
-}
-
-function renderElems(data) {
-  let LSElements = data._embedded.events;
-  eventsList.innerHTML = renderCard(LSElements);
-}
-
-function spinerOff() {
-  return preloader.classList.add('visually-hidden');
-}
-
-function spinerOn() {
-  return preloader.classList.remove('visually-hidden');
 }
 
 function setTotalPage(number) {
@@ -113,11 +102,6 @@ function setTotalPage(number) {
   } else {
     totalPages = 960;
   }
-}
-
-export function getFromSS(key) {
-  let data = sessionStorage.getItem(JSON.stringify(key));
-  return JSON.parse(data);
 }
 
 fetchServer(key);
