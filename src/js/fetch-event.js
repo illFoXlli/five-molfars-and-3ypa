@@ -32,85 +32,78 @@ function onSubmit(event) {
   fetchServer(key);
   key.keyword = form.elements.searchQuery.value;
   key.countryCode = form.elements.chooseQuery.value;
-  // key1.keyword = form.elements.searchQuery.value;
-  // key1.countryCode = form.elements.chooseQuery.value;
 }
 
 export const fetchServer = ({ page, keyword, countryCode }) => {
   const params = {
+    apikey: API_KEY,
     countrysCode: countryCode,
     keyword: keyword,
-    size: 8,
+    size: 16,
     page: page,
-    apikey: API_KEY,
   };
-
-  if (sessionStorage.getItem(JSON.stringify(key)) === null) {
+  if (getFromLS(key) === null) {
+    console.log('=====IF=====');
     return axios.get(`${BASE_URL}`, { params }).then(rec => {
-      // sessionStorage.setItem(JSON.stringify(key1), JSON.stringify(rec));
-      sessionStorage.setItem(JSON.stringify(key), JSON.stringify(rec));
+      saveToLS(key, rec);
       totalPages = rec.data.page.totalElements;
-
-      console.log(totalPages);
-
-      pageMenu(totalPages).on('beforeMove', async function (eventData) {
-        let pages = eventData.page;
-
-        key.page = pages;
-        console.log('fffff111111111111111111111111111111111111111111111111');
-        console.log(key);
-        try {
-          const { data } = await fetchServer(key);
-
-          console.log(data);
-
-          let LSElements = data._embedded.events;
-          eventsList.innerHTML = renderCard(LSElements);
-          // const result = data._embedded;
-        } catch (err) {
-          console.log(err);
-        }
-      });
-
-      // let LS = JSON.parse(localStorage.getItem(JSON.stringify(key)));
-      let LSElements = rec.data._embedded.events;
-      eventsList.innerHTML = renderCard(LSElements);
+      setPaginationServer(totalPages, key);
+      //renderElems(rec);
+      return rec.data;
     });
   } else {
-    let data = sessionStorage.getItem(JSON.stringify(key));
-    totalPages = JSON.parse(data).data.page.totalElements;
-
-    pageMenu(totalPages).on('beforeMove', async function (eventData) {
-      let pages = eventData.page;
-      key.page = pages;
-
-      let LS = JSON.parse(sessionStorage.getItem(JSON.stringify(key)));
-      console.log('222222222222222222222222222222222');
-      console.log(key);
-      try {
-        console.log(LS);
-        let LSElements = LS.data._embedded.events;
-        eventsList.innerHTML = renderCard(LSElements);
-      } catch (err) {
-        console.log(err);
-      }
-    });
-
-    return data;
+    console.log('=====ELSE=====');
+    let rec = getFromLS(key);
+    setPaginationLS(totalPages, key);
+    //renderElems(rec);
+    return Promise.resolve(rec.data);
   }
 };
 
+function saveToLS(key, data) {
+  localStorage.setItem(JSON.stringify(key), JSON.stringify(data));
+}
+
+function setPaginationServer(totalPages, key) {
+  pageMenu(totalPages).on('beforeMove', async function (eventData) {
+    let pages = eventData.page;
+    key.page = pages;
+    try {
+      const data = await fetchServer(key);
+      console.log(data);
+      renderElems(data);
+    } catch (err) {
+      console.log(err);
+    }
+  });
+}
+function setPaginationLS(totalPages, key) {
+  pageMenu(totalPages).on('beforeMove', async function (eventData) {
+    let pages = eventData.page;
+    key.page = pages;
+    try {
+      const data = await fetchServer(key);
+      renderElems(data);
+    } catch (err) {
+      console.log(err);
+    }
+  });
+}
+
+function renderElems(data) {
+  let LSElements = data._embedded.events;
+  eventsList.innerHTML = renderCard(LSElements);
+}
+
+function getFromLS(key) {
+  let data = localStorage.getItem(JSON.stringify(key));
+  return JSON.parse(data);
+}
+
+function getToLSTotalPages(key) {
+  let data = localStorage.getItem(JSON.stringify(key));
+  totalPages = JSON.parse(data).data.page.totalElements;
+  return totalPages;
+}
+
 fetchServer(key);
-console.log(key);
-// totalPages = fetchServer(key);
-// console.log(totalPages);
-// pageMenu(totalPages).on('beforeMove', async function (eventData) {
-//   const page = eventData.page;
-//   key.page = page;
-//   try {
-//     const { data } = await fetchServer(key);
-//     const result = data._embedded;
-//   } catch (err) {
-//     console.log(err);
-//   }
-// });
