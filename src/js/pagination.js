@@ -2,23 +2,18 @@ import Pagination from 'tui-pagination';
 import { key } from '../js/fetch-event';
 
 export const pageMenu = function (total) {
-   const container = document.getElementById('pagination');
-   const options = {
-      totalItems: total,
-      itemsPerPage: 16,
-      visiblePages: 5,
-      page: 1,
-      centerAlign: true,
-   };
-   const pagination = new Pagination(container, options);
 
-   // pagination.on('beforeMove', async function (eventData) {
-   //   const page = eventData.page;
-   //   console.log(eventData);
-   // });
-   console.log(options);
+  const container = document.getElementById('pagination');
+  const options = {
+    totalItems: total,
+    itemsPerPage: key.numberCardByPage,
+    visiblePages: 5,
+    page: key.page,
+    centerAlign: true,
+  };
+  const pagination = new Pagination(container, options);
 
-   return pagination;
+  return pagination;
 };
 
 pageMenu(100)

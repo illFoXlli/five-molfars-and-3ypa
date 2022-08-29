@@ -1,3 +1,4 @@
+import { spinerOn, spinerOff, getFromSS, saveToSS } from '../js/utils.js';
 import axios from 'axios';
 import { pageMenu } from '../js/pagination';
 import renderCard from '../templates/card-tpl.hbs';
@@ -5,91 +6,101 @@ import renderCard from '../templates/card-tpl.hbs';
 const BASE_URL = 'https://app.ticketmaster.com/discovery/v2/events';
 const API_KEY = 'unEzXyPGRdZtlW4MZOT74rfieLb91xjQ';
 const form = document.querySelector('#form');
-
-let keyword = 'concert';
-let countryCode = '';
-let numberCardByPage = 16;
-let totalPages = 100;
-
 const eventsList = document.querySelector('.events');
 
-const key = {
-  page: 1,
-  keyword,
-  countryCode,
-};
+let keyword = 'vs';
+let countryCode = 'US';
+let numberCardByPage = 16;
+let totalPages = 100;
+let startPage = 1;
 
 form.addEventListener('submit', onSubmit);
 
+export let key = {
+  page: startPage,
+  keyword,
+  countryCode,
+  numberCardByPage,
+};
+
 function onSubmit(event) {
   event.preventDefault();
-  fetchServer(key);
   key.keyword = form.elements.searchQuery.value;
   key.countryCode = form.elements.chooseQuery.value;
+  key.page = 1;
+  fetchServer(key);
 }
 
-export const fetchServer = ({ page, keyword, countryCode }) => {
+const fetchServer = ({ page, keyword, countryCode, numberCardByPage }) => {
   const params = {
     apikey: API_KEY,
-    countryCode: countryCode,
+    countrysCode: countryCode,
     keyword: keyword,
-    size: 16,
-    page: page,
+    size: numberCardByPage,
+    page,
   };
-  if (localStorage.getItem(JSON.stringify(key)) === null) {
-    return axios.get(`${BASE_URL}`, { params }).then(rec => {
-      totalPages = rec.data.page.totalElements / 16;
 
-      pageMenu(totalPages).on('beforeMove', async function (eventData) {
-        let pages = eventData.page;
-
-        key.page = pages;
-
-        try {
-          const { data } = await fetchServer(key);
-
-          let LSElements = data._embedded.events;
-          eventsList.innerHTML = renderCard(LSElements);
-          // const result = data._embedded;
-        } catch (err) {
-          console.log(err);
-        }
-        localStorage.setItem(JSON.stringify(key), JSON.stringify(rec));
-      });
-
-      // let LS = JSON.parse(localStorage.getItem(JSON.stringify(key)));
-      let LSElements = rec.data._embedded.events;
-      eventsList.innerHTML = renderCard(LSElements);
+  if (getFromSS(key) === null) {
+    console.log('=====IF=====');
+    return axios.get(`${BASE_URL}`, { params }).then(res => {
+      saveToSS(key, res);
+      setTotalPage(res.data.page.totalElements);
+      renderElems(res.data);
+      setPaginationServer(totalPages, key);
+      return res.data;
     });
   } else {
-    let data = localStorage.getItem(JSON.stringify(key));
-
-    // totalPages = JSON.parse(data).page.totalElements;
-
-    // pageMenu(totalPages).on('beforeMove', async function (eventData) {
-    //   const page = eventData.page;
-    //   key.page = page;
-    //   try {
-    //     const { data } = await fetchServer(key);
-    //     const result = data._embedded;
-    //   } catch (err) {
-    //     console.log(err);
-    //   }
-    // });
-    // return data;
+    console.log('=====ELSE=====');
+    let res = getFromSS(key);
+    setTotalPage(res.data.page.totalElements);
+    renderElems(res.data);
+    setPaginationLS(totalPages, key);
+    return Promise.resolve(res.data);
   }
 };
+
+function setPaginationServer(totalPages, key) {
+  pageMenu(totalPages).on('beforeMove', async function (eventData) {
+    spinerOn();
+    let pages = eventData.page;
+    key.page = pages;
+    try {
+      const data = await fetchServer(key);
+      renderElems(data);
+      spinerOff();
+    } catch (err) {
+      console.log(err);
+      spinerOff();
+      sessionStorage.clear();
+    }
+  });
+}
+function setPaginationLS(totalPages, key) {
+  pageMenu(totalPages).on('beforeMove', async function (eventData) {
+    let pages = eventData.page;
+    key.page = pages;
+    try {
+      const data = await fetchServer(key);
+      renderElems(data);
+    } catch (err) {
+      console.log(err);
+      spinerOff();
+      sessionStorage.clear();
+    }
+  });
+}
+
+function setTotalPage(number) {
+  if (number < 960) {
+    totalPages = number;
+  } else {
+    totalPages = 960;
+  }
+}
+
 fetchServer(key);
 
-// totalPages = fetchServer(key);
-// console.log(totalPages);
-// pageMenu(totalPages).on('beforeMove', async function (eventData) {
-//   const page = eventData.page;
-//   key.page = page;
-//   try {
-//     const { data } = await fetchServer(key);
-//     const result = data._embedded;
-//   } catch (err) {
-//     console.log(err);
-//   }
-// });
+export function renderElems(data) {
+  let LSElements = data._embedded.events;
+  eventsList.innerHTML = renderCard(LSElements);
+}

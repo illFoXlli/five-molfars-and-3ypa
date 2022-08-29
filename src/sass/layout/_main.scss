@@ -98,14 +98,18 @@
         line-height: calc(17.07 / 14);
         margin-right: auto;
         margin-left: auto;
+        min-height: 70px;
 
         @media screen and (min-width: 768px) {
             width: 152px;
             font-size: 16px;
             line-height: calc(19.5 / 16);
+            min-height: 80px;
         }
         @media screen and (min-width: 1280px) {
             width: 288px;
+            min-height: 40px;
+            maerin-top: 12px;
         }
     }
     &__start {
@@ -177,64 +181,3 @@
         visibility: hidden;
     }
 }
-// %page-position {
-//     display: flex;
-//     justify-content: center;
-//     align-items: center;
-//     box-sizing: border-box;
-//     margin-left: 7px;
-//     width: 30px;
-//     height: 30px;
-//     text-align: center;
-//     font-weight: 400;
-//     font-size: 14px;
-//     line-height: 1.214;
-// }
-
-// %page-curent-page {
-//     color: var(--pink-text-color);
-//     border: 1px solid var(--pink-text-color);
-//     border-radius: 10px 0;
-//     cursor: pointer;
-// }
-
-// .focusPage {
-//     @extend %page-curent-page;
-// }
-
-// .page {
-//     @extend %page-position;
-
-//     &:hover {
-//         @extend %page-curent-page;
-//     }
-// }
-// .page-dots {
-//     @extend %page-position;
-
-//     &--start {
-//         @extend %page-position;
-//         display: none;
-//     }
-// }
-// $colors: (
-//   font-main-color: #dc56c5,
-//   font-main-color-transparent: #dc38c54d,
-//   font-second-color: #fff,
-//   font-gray-color: #939393,
-//   font-dark-color: #0e0e0e,
-//   bg-color: #0e0e0e,
-//   bg-modal: #fff2fd,
-//   button-color: #4c00fe,
-// );
-
-// $fonts: (
-//   "main-Montserrat": (
-//     "Montserrat",
-//     sans-serif,
-//   ),
-//   "second-raleway": (
-//     "Raleway",
-//     sans-serif,
-//   ),
-// );
