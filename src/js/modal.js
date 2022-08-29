@@ -9,13 +9,13 @@ closeModalBtn.addEventListener('click', toggleModal);
 cardOnClick.addEventListener('click', onCardClick);
 
 function toggleModal() {
-  backdropModal.classList.toggle('visually-hidden');
+  backdropModal.classList.toggle('is-hidden');
   document.body.classList.remove('no-scroll');
 }
 
 function onCardClick() {
   console.log('111111111111');
-  backdropModal.classList.toggle('visually-hidden');
+  backdropModal.classList.toggle('is-hidden');
   document.body.classList.add('no-scroll');
 }
 
