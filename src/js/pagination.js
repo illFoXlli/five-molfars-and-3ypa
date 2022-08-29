@@ -12,6 +12,7 @@ export const pageMenu = function (total) {
     centerAlign: true,
   };
   const pagination = new Pagination(container, options);
-
+  console.log('1111111111111111111111111111111111');
+  console.log(options.totalItems);
   return pagination;
 };
