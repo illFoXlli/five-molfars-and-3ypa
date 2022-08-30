@@ -1,54 +1,54 @@
-.dark body {
-    background: rgb(21, 2, 22);
-    background: linear-gradient(138deg, rgba(21, 2, 22, 0.4738270308123249) 0%, rgba(252, 252, 252, 0.8827906162464986) 100%);
-}
+// .dark body {
+//     background: rgb(21, 2, 22);
+//     background: linear-gradient(138deg, rgba(21, 2, 22, 0.4738270308123249) 0%, rgba(252, 252, 252, 0.8827906162464986) 100%);
+// }
 
-.dark .header {
-    position: relative;
-    padding-bottom: 60px;
+// .dark .header {
+//     position: relative;
+//     padding-bottom: 60px;
 
-    &__bg {
-        position: absolute;
+//     &__bg {
+//         position: absolute;
 
-        left: 0;
-        top: 0;
+//         left: 0;
+//         top: 0;
 
-        filter: brightness(300%) contrast(124%) grayscale(57%) hue-rotate(263deg) invert(95%) opacity(97%) saturate(275%);
+//         filter: brightness(300%) contrast(124%) grayscale(57%) hue-rotate(263deg) invert(95%) opacity(97%) saturate(275%);
 
-        @media screen and (max-width: 767.98px) {
+//         @media screen and (max-width: 767.98px) {
 
-            background-image: url(../images/header-bg/pic.png);
-            background-repeat: no-repeat;
-            width: 500px;
-            background-position: center top;
-            width: 320px;
-            height: 364px;
-            filter: brightness(300%) contrast(124%) grayscale(57%) hue-rotate(263deg) invert(95%) opacity(97%) saturate(275%);
-        }
+//             background-image: url(../images/header-bg/pic.png);
+//             background-repeat: no-repeat;
+//             width: 500px;
+//             background-position: center top;
+//             width: 320px;
+//             height: 364px;
+//             filter: brightness(300%) contrast(124%) grayscale(57%) hue-rotate(263deg) invert(95%) opacity(97%) saturate(275%);
+//         }
 
-        @media screen and (min-width: 768px) {
-            background-image: url(../images/header-bg/pic-tablet.png);
-            background-repeat: no-repeat;
-            background-position: center top;
-            width: 768px;
-            height: 364px;
+//         @media screen and (min-width: 768px) {
+//             background-image: url(../images/header-bg/pic-tablet.png);
+//             background-repeat: no-repeat;
+//             background-position: center top;
+//             width: 768px;
+//             height: 364px;
 
-            filter: brightness(300%) contrast(124%) grayscale(57%) hue-rotate(263deg) invert(95%) opacity(97%) saturate(275%);
-        }
+//             filter: brightness(300%) contrast(124%) grayscale(57%) hue-rotate(263deg) invert(95%) opacity(97%) saturate(275%);
+//         }
 
-        @media screen and (min-width: 1280px) {
-            background-image: url(../images/header-bg/pic-desktop.png);
-            background-repeat: no-repeat;
-            background-position: center top;
-            height: 446px;
-            width: 1280px;
+//         @media screen and (min-width: 1280px) {
+//             background-image: url(../images/header-bg/pic-desktop.png);
+//             background-repeat: no-repeat;
+//             background-position: center top;
+//             height: 446px;
+//             width: 1280px;
 
 
-            filter: brightness(300%) contrast(158%) grayscale(38%) hue-rotate(165deg) invert(92%) opacity(89%) saturate(131%) sepia(17%);
-            box-shadow: rgba(240, 46, 170, 0.4) -5px 5px, rgba(240, 46, 170, 0.3) -10px 10px, rgba(240, 46, 170, 0.2) -15px 15px, rgba(240, 46, 170, 0.1) -20px 20px, rgba(240, 46, 170, 0.05) -25px 25px;
-        }
-    }
-}
+//             filter: brightness(300%) contrast(158%) grayscale(38%) hue-rotate(165deg) invert(92%) opacity(89%) saturate(131%) sepia(17%);
+//             box-shadow: rgba(240, 46, 170, 0.4) -5px 5px, rgba(240, 46, 170, 0.3) -10px 10px, rgba(240, 46, 170, 0.2) -15px 15px, rgba(240, 46, 170, 0.1) -20px 20px, rgba(240, 46, 170, 0.05) -25px 25px;
+//         }
+//     }
+// }
 
 .dark h1 {
     position: relative;
@@ -57,73 +57,65 @@
     z-index: 200;
 }
 
-.dark .container {
-    position: relative;
+.dark .container1 {
 
-    &__bg {
-        position: absolute;
+    @media screen and (min-width: 319.98px) and (max-width: 767.98px) {
+        background-image: url(../images/main-bg/bg-body-phone.png);
+        background-repeat: no-repeat;
+        width: 400px;
+        height: 2750px;
+        background-size: 1500px;
+        background-position: 81px 51px;
+        filter: brightness(300%) contrast(158%) grayscale(38%) hue-rotate(165deg) invert(92%) opacity(89%) saturate(131%) sepia(17%);
 
-        // left: 0;
-        // top: 0;
+    }
 
-        // phone
-        @media screen and (min-width: 319.98px) and (max-width: 767.98px) {
-            background-image: url(../images/main-bg/bg-body-phone.png);
-            background-repeat: no-repeat;
-            width: 400px;
-            height: 2750px;
-            background-size: 1500px;
-            background-position: 81px 51px;
-            filter: brightness(300%) contrast(158%) grayscale(38%) hue-rotate(165deg) invert(92%) opacity(89%) saturate(131%) sepia(17%);
+    // tablet
 
-        }
+    @media screen and (min-width: 768px) {
+        background-image: url(../images/main-bg/bg-body-tablet.png);
+        background-repeat: no-repeat;
+        width: 768px;
+        height: 1620px;
+        background-size: 1500px;
+        background-position: center 51px;
+        filter: brightness(300%) contrast(158%) grayscale(38%) hue-rotate(165deg) invert(92%) opacity(89%) saturate(131%) sepia(17%);
+    }
 
-        // tablet
+    // deckstop
 
-        @media screen and (min-width: 768px) {
-            background-image: url(../images/main-bg/bg-body-tablet.png);
-            background-repeat: no-repeat;
-            width: 768px;
-            height: 1620px;
-            background-size: 1500px;
-            background-position: center 51px;
-            filter: brightness(300%) contrast(158%) grayscale(38%) hue-rotate(165deg) invert(92%) opacity(89%) saturate(131%) sepia(17%);
-        }
+    @media screen and (min-width: 1280px) {
+        background-image: url(../images/main-bg/bg-body-deckstop.png);
+        background-repeat: no-repeat;
 
-        // deckstop
-
-        @media screen and (min-width: 1280px) {
-            background-image: url(../images/main-bg/bg-body-deckstop.png);
-            background-repeat: no-repeat;
-
-            width: 1280px;
-            height: 2120px;
-            background-size: 1500px;
-            background-position: center 51px;
-            filter: brightness(300%) contrast(158%) grayscale(38%) hue-rotate(165deg) invert(92%) opacity(89%) saturate(131%) sepia(17%);
+        width: 1280px;
+        height: 2120px;
+        background-size: 1500px;
+        background-position: center 51px;
+        filter: brightness(300%) contrast(158%) grayscale(38%) hue-rotate(165deg) invert(92%) opacity(89%) saturate(131%) sepia(17%);
 
 
-            box-shadow: rgba(240, 46, 170, 0.4) -5px 5px, rgba(240, 46, 170, 0.3) -10px 10px, rgba(240, 46, 170, 0.2) -15px 15px, rgba(240, 46, 170, 0.1) -20px 20px, rgba(240, 46, 170, 0.05) -25px 25px;
+        box-shadow: rgba(240, 46, 170, 0.4) -5px 5px, rgba(240, 46, 170, 0.3) -10px 10px, rgba(240, 46, 170, 0.2) -15px 15px, rgba(240, 46, 170, 0.1) -20px 20px, rgba(240, 46, 170, 0.05) -25px 25px;
 
-        }
     }
 }
 
 
 
-.dark h2 {
-    color: black;
-}
+
+// .dark h2 {
+//     color: black;
+// }
 
 
-.dark input {
-    background-color: rgba(0, 0, 0, 0.5);
-}
+// .dark input {
+//     background-color: rgba(0, 0, 0, 0.5);
+// }
 
-.dark .custom-select-panel {
-    background-color: rgba(0, 0, 0, 0.5);
-}
+// .dark .custom-select-panel {
+//     background-color: rgba(0, 0, 0, 0.5);
+// }
 
-.custom-select-opener {
-    background-color: rgba(0, 0, 0, 0.5);
-}
+// .custom-select-opener {
+//     background-color: rgba(0, 0, 0, 0.5);
+// }
