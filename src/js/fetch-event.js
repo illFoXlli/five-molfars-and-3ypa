@@ -50,7 +50,6 @@ const fetchServer = ({ page, keyword, countryCode, numberCardByPage }) => {
   if (getFromSS(key) === null) {
     console.log('=====IF=====');
     try {
-      console.log('=====IF====IF=====');
       return axios.get(`${BASE_URL}`, { params }).then(res => {
         if (res.data._embedded !== undefined) {
           console.log(res.data._embedded.events.length);
