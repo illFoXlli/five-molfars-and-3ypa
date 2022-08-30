@@ -5,3 +5,4 @@ import './js/country-render';
 import './js/pagination';
 import './js/modal';
 import './js/theme';
+import './js/aurthors-cards';

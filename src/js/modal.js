@@ -16,7 +16,7 @@ closeModalBtn.addEventListener('click', toggleModal);
 // cardOnClick.addEventListener('click', onCardClick);
 boxOnClick.addEventListener('click', onCardClick);
 
-function toggleModal() {
+export function toggleModal() {
   backdropModal.classList.toggle('is-hidden');
   // console.log('ykjmdtgy');
   document.body.classList.remove('no-scroll');
@@ -43,11 +43,15 @@ function getCard(getCards, findUl) {
   authorName = filterCard._embedded.venues[0].name;
 }
 // let xxxx = getCard(getCards, findUl);
-console.log(authorName);
-function markupModal({ images, info, priceRanges }) {
+// console.log(authorName);
+function markupModal({ images, info, priceRanges, dates }) {
   // console.log(priceRanges[0]);
   let img = document.querySelector('.modal img.modal__img');
   img.src = images[0].url;
+  let infoWhen = document.querySelector('.whenDate');
+  infoWhen.textContent = `${dates.start.localDate}`;
+  let infoWhenTime = document.querySelector('.secondP');
+  infoWhenTime.textContent = `${dates.start.localTime} (${dates.timezone})`;
   let infoText = document.querySelector('.modal p.modal__list-text');
   try {
     if (info === undefined) {
@@ -57,10 +61,14 @@ function markupModal({ images, info, priceRanges }) {
   } catch {
     infoText.textContent = 'No text 🍲';
   }
-  let infoPrice = document.querySelector('.modal span.modal__standart');
-  infoPrice.textContent = `${priceRanges[0].type.toUpperCase()} ${
-    priceRanges[0].min
-  }-${priceRanges[0].max} ${priceRanges[0].currency}`;
+  try {
+    let infoPrice = document.querySelector('.modal span.modal__standart');
+    infoPrice.textContent = `${priceRanges[0].type.toUpperCase()} ${
+      priceRanges[0].min
+    }-${priceRanges[0].max} ${priceRanges[0].currency}`;
+  } catch {
+    console.log('Price is not defined');
+  }
 
   /* dispatchEvent.textContet;
   backdropModal.innerHTML = `
