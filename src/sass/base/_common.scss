@@ -1,4 +1,4 @@
-@import "~node_modules/modern-normalize/modern-normalize.css";
+@import '~node_modules/modern-normalize/modern-normalize.css';
 
 html {
   scroll-behavior: smooth;
@@ -49,14 +49,35 @@ img {
 }
 
 body {
-
-
   background-color: var(--black-bg-color);
   color: var(--pink-text-color);
   font-family: var(--primary-text-font);
   background-color: wheat;
 
   background: rgb(20, 1, 23);
-  background: radial-gradient(circle, rgba(20, 1, 23, 1) 0%, rgba(0, 0, 0, 0.9444152661064426) 100%);
+  background: radial-gradient(
+    circle,
+    rgba(20, 1, 23, 1) 0%,
+    rgba(0, 0, 0, 0.9444152661064426) 100%
+  );
+  // border: solid 1px #0000ff;
+  // background: #ddffff;
+}
+.no-scroll {
+  overflow: hidden;
+  border-right: 7px solid transparent;
+}
+::-webkit-scrollbar {
+  width: 7px;
+}
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(transparent, #b03689);
 
+  border-radius: 6px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(transparent, #a91079);
+}
+::-webkit-scrollbar-track {
+  background: black;
 }
