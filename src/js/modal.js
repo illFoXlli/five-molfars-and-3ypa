@@ -57,10 +57,14 @@ function markupModal({ images, info, priceRanges }) {
   } catch {
     infoText.textContent = 'No text 🍲';
   }
-  let infoPrice = document.querySelector('.modal span.modal__standart');
-  infoPrice.textContent = `${priceRanges[0].type.toUpperCase()} ${
-    priceRanges[0].min
-  }-${priceRanges[0].max} ${priceRanges[0].currency}`;
+  try {
+    let infoPrice = document.querySelector('.modal span.modal__standart');
+    infoPrice.textContent = `${priceRanges[0].type.toUpperCase()} ${
+      priceRanges[0].min
+    }-${priceRanges[0].max} ${priceRanges[0].currency}`;
+  } catch {
+    console.log('Price is not defined');
+  }
 
   /* dispatchEvent.textContet;
   backdropModal.innerHTML = `
