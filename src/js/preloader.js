@@ -3,5 +3,5 @@ document.body.onload = function () {
     if (!preloader.classList.contains('visually-hidden')) {
       preloader.classList.add('visually-hidden');
     }
-  }, 1000);
+  }, 500);
 };

@@ -1,4 +1,11 @@
-import { spinerOn, spinerOff, getFromSS, saveToSS } from '../js/utils.js';
+import {
+  spinerOn,
+  spinerOff,
+  getFromSS,
+  saveToSS,
+  notificationOk,
+  notificationErorr,
+} from '../js/utils.js';
 import axios from 'axios';
 import { pageMenu } from '../js/pagination';
 import renderCard from '../templates/card-tpl.hbs';
@@ -30,7 +37,7 @@ function onSubmit(event) {
   key.page = 1;
   fetchServer(key);
 }
-
+//обратиться к серверу
 const fetchServer = ({ page, keyword, countryCode, numberCardByPage }) => {
   const params = {
     apikey: API_KEY,
@@ -42,13 +49,22 @@ const fetchServer = ({ page, keyword, countryCode, numberCardByPage }) => {
 
   if (getFromSS(key) === null) {
     console.log('=====IF=====');
-    return axios.get(`${BASE_URL}`, { params }).then(res => {
-      saveToSS(key, res);
-      setTotalPage(res.data.page.totalElements);
-      renderElems(res.data);
-      setPaginationServer(totalPages, key);
-      return res.data;
-    });
+    try {
+      console.log('=====IF====IF=====');
+      return axios.get(`${BASE_URL}`, { params }).then(res => {
+        if (res.data._embedded !== undefined) {
+          console.log(res.data._embedded.events.length);
+          saveToSS(key, res);
+          setTotalPage(res.data.page.totalElements);
+          renderElems(res.data);
+          setPaginationServer(totalPages, key);
+          console.log(res.data._embedded.events);
+          return res.data;
+        } else {
+          notificationErorr();
+        }
+      });
+    } catch {}
   } else {
     console.log('=====ELSE=====');
     let res = getFromSS(key);
@@ -99,7 +115,7 @@ function setTotalPage(number) {
 }
 
 fetchServer(key);
-
+// отрисовка карточек
 export function renderElems(data) {
   let LSElements = data._embedded.events;
   eventsList.innerHTML = renderCard(LSElements);

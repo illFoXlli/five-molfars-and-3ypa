@@ -10,6 +10,11 @@
 @import "./layout/main";
 @import "./layout/footer";
 
+@import "./components/theme.scss";
+@import "./components/themebtn.scss";
+@import "./components/main-bg";
+
+
 @import "./layout/modal";
 
 @import "./components/button-up";
