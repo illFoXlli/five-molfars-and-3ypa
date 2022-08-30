@@ -1,4 +1,11 @@
-import { spinerOn, spinerOff, getFromSS, saveToSS } from '../js/utils.js';
+import {
+  spinerOn,
+  spinerOff,
+  getFromSS,
+  saveToSS,
+  notificationOk,
+  notificationErorr,
+} from '../js/utils.js';
 import axios from 'axios';
 import { pageMenu } from '../js/pagination';
 import renderCard from '../templates/card-tpl.hbs';
@@ -30,8 +37,13 @@ function onSubmit(event) {
   key.page = 1;
   fetchServer(key);
 }
-
-const fetchServer = ({ page, keyword, countryCode, numberCardByPage }) => {
+//обратиться к серверу
+export const fetchServer = ({
+  page,
+  keyword,
+  countryCode,
+  numberCardByPage,
+}) => {
   const params = {
     apikey: API_KEY,
     countrysCode: countryCode,
@@ -42,13 +54,35 @@ const fetchServer = ({ page, keyword, countryCode, numberCardByPage }) => {
 
   if (getFromSS(key) === null) {
     console.log('=====IF=====');
-    return axios.get(`${BASE_URL}`, { params }).then(res => {
-      saveToSS(key, res);
-      setTotalPage(res.data.page.totalElements);
-      renderElems(res.data);
-      setPaginationServer(totalPages, key);
-      return res.data;
-    });
+    try {
+      return axios.get(`${BASE_URL}`, { params }).then(res => {
+        try {
+          if (res.data._embedded !== undefined) {
+            //console.log(res.data._embedded.events.length);
+            saveToSS(key, res);
+            setTotalPage(res.data.page.totalElements);
+            renderElems(res.data);
+            setPaginationServer(totalPages, key);
+            console.log(res.data._embedded.events);
+            return res.data;
+          } else {
+            notificationErorr();
+          }
+        } catch {
+          if (res.data !== undefined) {
+            //console.log(res.data._embedded.events.length);
+            saveToSS(key, res);
+            setTotalPage(res.data.page.totalElements);
+            renderElems(res.data);
+            setPaginationServer(totalPages, key);
+            console.log(res.data._embedded.events);
+            return res.data;
+          } else {
+            notificationErorr();
+          }
+        }
+      });
+    } catch {}
   } else {
     console.log('=====ELSE=====');
     let res = getFromSS(key);
@@ -71,10 +105,21 @@ function setPaginationServer(totalPages, key) {
     } catch (err) {
       console.log(err);
       spinerOff();
-      localStorage.clear();
+      //localStorage.clear();
     }
   });
 }
+
+// отрисовка карточек
+export function renderElems(data) {
+  try {
+    let LSElements = data._embedded.events;
+    eventsList.innerHTML = renderCard(LSElements);
+  } catch (error) {
+    console.log('===================================', data);
+  }
+}
+
 function setPaginationLS(totalPages, key) {
   pageMenu(totalPages).on('beforeMove', async function (eventData) {
     let pages = eventData.page;
@@ -99,8 +144,3 @@ function setTotalPage(number) {
 }
 
 fetchServer(key);
-
-export function renderElems(data) {
-  let LSElements = data._embedded.events;
-  eventsList.innerHTML = renderCard(LSElements);
-}
