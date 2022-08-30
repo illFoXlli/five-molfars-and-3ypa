@@ -10,6 +10,7 @@ aboutAuthorBtn.addEventListener('click', onAboutAuthorBtnClick);
 
 function onAboutAuthorBtnClick() {
   key.keyword = authorName;
+  key.page = 1;
   console.log(key.page);
   fetchServer(key);
   // renderElems();
