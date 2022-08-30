@@ -38,7 +38,12 @@ function onSubmit(event) {
   fetchServer(key);
 }
 //обратиться к серверу
-const fetchServer = ({ page, keyword, countryCode, numberCardByPage }) => {
+export const fetchServer = ({
+  page,
+  keyword,
+  countryCode,
+  numberCardByPage,
+}) => {
   const params = {
     apikey: API_KEY,
     countrysCode: countryCode,
@@ -50,18 +55,31 @@ const fetchServer = ({ page, keyword, countryCode, numberCardByPage }) => {
   if (getFromSS(key) === null) {
     console.log('=====IF=====');
     try {
-      console.log('=====IF====IF=====');
       return axios.get(`${BASE_URL}`, { params }).then(res => {
-        if (res.data._embedded !== undefined) {
-          console.log(res.data._embedded.events.length);
-          saveToSS(key, res);
-          setTotalPage(res.data.page.totalElements);
-          renderElems(res.data);
-          setPaginationServer(totalPages, key);
-          console.log(res.data._embedded.events);
-          return res.data;
-        } else {
-          notificationErorr();
+        try {
+          if (res.data._embedded !== undefined) {
+            //console.log(res.data._embedded.events.length);
+            saveToSS(key, res);
+            setTotalPage(res.data.page.totalElements);
+            renderElems(res.data);
+            setPaginationServer(totalPages, key);
+            console.log(res.data._embedded.events);
+            return res.data;
+          } else {
+            notificationErorr();
+          }
+        } catch {
+          if (res.data !== undefined) {
+            //console.log(res.data._embedded.events.length);
+            saveToSS(key, res);
+            setTotalPage(res.data.page.totalElements);
+            renderElems(res.data);
+            setPaginationServer(totalPages, key);
+            console.log(res.data._embedded.events);
+            return res.data;
+          } else {
+            notificationErorr();
+          }
         }
       });
     } catch {}
@@ -87,10 +105,21 @@ function setPaginationServer(totalPages, key) {
     } catch (err) {
       console.log(err);
       spinerOff();
-      localStorage.clear();
+      //localStorage.clear();
     }
   });
 }
+
+// отрисовка карточек
+export function renderElems(data) {
+  try {
+    let LSElements = data._embedded.events;
+    eventsList.innerHTML = renderCard(LSElements);
+  } catch (error) {
+    console.log('===================================', data);
+  }
+}
+
 function setPaginationLS(totalPages, key) {
   pageMenu(totalPages).on('beforeMove', async function (eventData) {
     let pages = eventData.page;
@@ -115,8 +144,3 @@ function setTotalPage(number) {
 }
 
 fetchServer(key);
-// отрисовка карточек
-export function renderElems(data) {
-  let LSElements = data._embedded.events;
-  eventsList.innerHTML = renderCard(LSElements);
-}
