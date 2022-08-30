@@ -90,15 +90,3 @@ body {
   }
 
 }
-
-// background top
-
-::-webkit-scrollbar {
-  // background: bisque;
-  width: 10px;
-}
-
-::-webkit-scrollbar-thumb {
-  background: linear-gradient(transparent, #a91079);
-  border-radius: 6px;
-}
