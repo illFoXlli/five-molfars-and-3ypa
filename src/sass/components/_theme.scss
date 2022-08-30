@@ -1,0 +1,92 @@
+.dark .header {
+    position: relative;
+    padding-bottom: 60px;
+
+    &__bg {
+        position: absolute;
+
+        left: 0;
+        top: 0;
+
+        filter: brightness(300%) contrast(124%) grayscale(57%) hue-rotate(263deg) invert(95%) opacity(97%) saturate(275%);
+
+        @media screen and (max-width: 767.98px) {
+            background-image: url(../images/header-bg/pic.png);
+            background-repeat: no-repeat;
+            background-position: center top;
+            width: 768px;
+            height: 364px;
+
+            filter: brightness(300%) contrast(124%) grayscale(57%) hue-rotate(263deg) invert(95%) opacity(97%) saturate(275%);
+        }
+
+        @media screen and (min-width: 768px) {
+            background-image: url(../images/header-bg/pic-tablet.png);
+            background-repeat: no-repeat;
+            background-position: center top;
+            width: 768px;
+            height: 364px;
+
+            filter: brightness(300%) contrast(124%) grayscale(57%) hue-rotate(263deg) invert(95%) opacity(97%) saturate(275%);
+        }
+
+        @media screen and (min-width: 1280px) {
+            background-image: url(../images/header-bg/pic-desktop.png);
+            background-repeat: no-repeat;
+            background-position: center top;
+            height: 446px;
+            width: 1280px;
+
+            filter: brightness(300%) contrast(124%) grayscale(57%) hue-rotate(263deg) invert(95%) opacity(97%) saturate(275%);
+        }
+    }
+}
+
+.dark h1 {
+    position: relative;
+    animation: blink1 8s infinite;
+    color: black;
+    z-index: 100;
+}
+
+.dark .main {
+    position: relative;
+
+    &__bg {
+        position: absolute;
+
+        left: 0;
+        top: 0;
+
+        // phone
+        @media screen and (max-width: 767.98px) {
+            background-image: url(../images/main-bg/bg-body-phone.png);
+            background-repeat: no-repeat;
+
+            filter: brightness(300%) contrast(124%) grayscale(57%) hue-rotate(263deg) invert(95%) opacity(97%) saturate(275%);
+        }
+
+        // tablet
+
+        @media screen and (min-width: 768px) {
+            background-image: url(../images/main-bg/bg-body-tablet.png);
+            background-repeat: no-repeat;
+            filter: brightness(300%) contrast(124%) grayscale(57%) hue-rotate(263deg) invert(95%) opacity(97%) saturate(275%);
+
+        }
+
+        // deckstop
+
+        @media screen and (min-width: 1280px) {
+            background-image: url(../images/main-bg/bg-body-deckstop.png);
+            background-repeat: no-repeat;
+            left: 2227px;
+            width: 1280px;
+            height: 2090px;
+
+
+            filter: brightness(300%) contrast(124%) grayscale(57%) hue-rotate(263deg) invert(95%) opacity(97%) saturate(275%);
+
+        }
+    }
+}

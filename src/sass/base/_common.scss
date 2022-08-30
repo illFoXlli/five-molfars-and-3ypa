@@ -56,7 +56,8 @@ body {
   @media screen and (max-width: 767.98px) {
     background-image: url(../images/main-bg/bg-body-phone.png);
     background-repeat: no-repeat;
-    background-position: center top;
+    background-size: 2002px;
+    background-position: center;
   }
 
   // tablet
@@ -64,7 +65,8 @@ body {
   @media screen and (min-width: 768px) {
     background-image: url(../images/main-bg/bg-body-tablet.png);
     background-repeat: no-repeat;
-    background-position: center top;
+    background-size: 1000px 2000px;
+    background-position: center;
   }
 
   // deckstop
@@ -72,16 +74,20 @@ body {
   @media screen and (min-width: 1280px) {
     background-image: url(../images/main-bg/bg-body-deckstop.png);
     background-repeat: no-repeat;
-    background-position: center top;
+    background-size: 1280px 2090px;
+    background-position: center 446px;
   }
+
   &.no-scroll {
     overflow: hidden;
   }
 }
+
 ::-webkit-scrollbar {
   // background: bisque;
   width: 10px;
 }
+
 ::-webkit-scrollbar-thumb {
   background: linear-gradient(transparent, #a91079);
   border-radius: 6px;
