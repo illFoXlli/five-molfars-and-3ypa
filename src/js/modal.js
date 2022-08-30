@@ -14,7 +14,7 @@ closeModalBtn.addEventListener('click', toggleModal);
 // cardOnClick.addEventListener('click', onCardClick);
 boxOnClick.addEventListener('click', onCardClick);
 
-function toggleModal() {
+export function toggleModal() {
   backdropModal.classList.toggle('is-hidden');
   document.body.classList.remove('no-scroll');
 }

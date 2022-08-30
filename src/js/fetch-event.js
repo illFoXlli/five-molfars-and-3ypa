@@ -38,7 +38,12 @@ function onSubmit(event) {
   fetchServer(key);
 }
 //обратиться к серверу
-const fetchServer = ({ page, keyword, countryCode, numberCardByPage }) => {
+export const fetchServer = ({
+  page,
+  keyword,
+  countryCode,
+  numberCardByPage,
+}) => {
   const params = {
     apikey: API_KEY,
     countrysCode: countryCode,
