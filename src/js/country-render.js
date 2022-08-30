@@ -1,6 +1,6 @@
 import countryList from '../json/country-list.json';
-import customSelect from 'custom-select';
 import renderCountry from '../templates/country-list.hbs';
+import customSelect from 'custom-select';
 
 const form = document.querySelector('.header__form');
 

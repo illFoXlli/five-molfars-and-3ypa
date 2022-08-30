@@ -1,12 +1,33 @@
-import { fetchServer } from './fetch-event';
+import { getFromSS } from './utils';
+import { key } from './fetch-event';
 
 const closeModalBtn = document.querySelector('[data-modal-close]');
 const backdropModal = document.querySelector('[data-modal]');
+// const cardOnClick = document.querySelector('.event');
+const boxOnClick = document.querySelector('.events');
+
 closeModalBtn.addEventListener('click', toggleModal);
+// cardOnClick.addEventListener('click', onCardClick);
+// cardOnClick.addEventListener('click', onCardClick);
+boxOnClick.addEventListener('click', onCardClick);
 
 function toggleModal() {
   backdropModal.classList.toggle('is-hidden');
+  document.body.classList.remove('no-scroll');
 }
+
+function onCardClick(event) {
+  console.log(event.target);
+  if (event.target.nodeName === 'DIV') {
+    return;
+  } else if (event.target.nodeName !== 'DIV') {
+    backdropModal.classList.toggle('is-hidden');
+    document.body.classList.add('no-scroll');
+  }
+}
+
+const x = getFromSS(key);
+console.log(x);
 
 // const BASE_URL = 'https://app.ticketmaster.com/discovery/v2/events';
 // const API_KEY = 'unEzXyPGRdZtlW4MZOT74rfieLb91xjQ';
