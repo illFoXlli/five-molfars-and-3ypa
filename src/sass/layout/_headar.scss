@@ -6,6 +6,7 @@
     background-image: url(../images/header-bg/pic.png);
     background-repeat: no-repeat;
     background-position: center top;
+    width: 320px;
   }
 
   @media screen and (min-width: 768px) {
@@ -49,6 +50,7 @@
 }
 
 @keyframes blink {
+
   20%,
   24%,
   55% {
@@ -107,9 +109,11 @@
   border-radius: 20px;
   border: 1px solid transparent;
   outline: none;
+
   &::placeholder {
     color: var(--gray-icon-color);
   }
+
   &:focus,
   &:hover {
     border-color: var(--pink-text-color);
@@ -130,11 +134,9 @@
 
 .custom-select-opener:focus {
   height: 40px;
-  background-image: linear-gradient(
-      45deg,
+  background-image: linear-gradient(45deg,
       #0000 50%,
-      var(--pink-text-color) 50%
-    ),
+      var(--pink-text-color) 50%),
     linear-gradient(135deg, var(--pink-text-color) 50%, #0000 50%) !important;
   background-position: calc(100% - 34px) calc(1em + 2px),
     calc(100% - 26px) calc(1em + 2px), calc(100% - 2.5em) 0.5em !important;
@@ -303,10 +305,11 @@
   }
 }
 
-.search__input:hover + .search__button > .search__icon,
-.search__input:focus + .search__button > .search__icon {
+.search__input:hover+.search__button>.search__icon,
+.search__input:focus+.search__button>.search__icon {
   fill: var(--pink-text-color);
 }
+
 .search__input::selection {
   background-color: var(--pink-text-color);
   color: #ccc;
