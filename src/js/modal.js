@@ -6,6 +6,8 @@ const backdropModal = document.querySelector('[data-modal]');
 // const cardOnClick = document.querySelector('.event');
 const boxOnClick = document.querySelector('.events');
 let findUl;
+let getDataSS;
+let getCards;
 
 closeModalBtn.addEventListener('click', toggleModal);
 // cardOnClick.addEventListener('click', onCardClick);
@@ -18,6 +20,8 @@ function toggleModal() {
 }
 
 function onCardClick(event) {
+  getDataSS = getFromSS(key)
+  getCards = getDataSS.data._embedded.events;
   //  console.log(event.target);
   if (event.target.nodeName !== 'DIV') {
     findUl = event.target.closest('ul').id;
@@ -28,8 +32,7 @@ function onCardClick(event) {
   }
 }
 
-const getDataSS = getFromSS(key);
-const getCards = getDataSS.data._embedded.events;
+
 function getCard(getCards, findUl) {
   let filterCard = getCards.find(card => card.id === findUl);
   console.log(filterCard);
