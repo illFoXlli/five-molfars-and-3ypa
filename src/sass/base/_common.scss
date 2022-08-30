@@ -2,6 +2,7 @@
 
 html {
   scroll-behavior: smooth;
+  user-select: none;
 }
 
 h1,
@@ -69,8 +70,6 @@ body {
     background-position: center;
   }
 
-  // deckstop
-
   @media screen and (min-width: 1280px) {
     background-image: url(../images/main-bg/bg-body-deckstop.png);
     background-repeat: no-repeat;
@@ -82,6 +81,8 @@ body {
     overflow: hidden;
   }
 }
+
+// background top
 
 ::-webkit-scrollbar {
   // background: bisque;
