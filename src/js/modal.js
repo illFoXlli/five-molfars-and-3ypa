@@ -43,11 +43,15 @@ function getCard(getCards, findUl) {
   authorName = filterCard._embedded.venues[0].name;
 }
 // let xxxx = getCard(getCards, findUl);
-console.log(authorName);
-function markupModal({ images, info, priceRanges }) {
+// console.log(authorName);
+function markupModal({ images, info, priceRanges, dates }) {
   // console.log(priceRanges[0]);
   let img = document.querySelector('.modal img.modal__img');
   img.src = images[0].url;
+  let infoWhen = document.querySelector('.whenDate');
+  infoWhen.textContent = `${dates.start.localDate}`;
+  let infoWhenTime = document.querySelector('.secondP');
+  infoWhenTime.textContent = `${dates.start.localTime} (${dates.timezone})`;
   let infoText = document.querySelector('.modal p.modal__list-text');
   try {
     if (info === undefined) {
