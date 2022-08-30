@@ -20,7 +20,7 @@ function toggleModal() {
 }
 
 function onCardClick(event) {
-  getDataSS = getFromSS(key)
+  getDataSS = getFromSS(key);
   getCards = getDataSS.data._embedded.events;
   //  console.log(event.target);
   if (event.target.nodeName !== 'DIV') {
@@ -31,7 +31,6 @@ function onCardClick(event) {
     getCard(getCards, findUl);
   }
 }
-
 
 function getCard(getCards, findUl) {
   let filterCard = getCards.find(card => card.id === findUl);
