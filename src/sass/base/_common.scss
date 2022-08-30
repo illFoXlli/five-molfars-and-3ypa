@@ -50,43 +50,13 @@ img {
 
 body {
 
+
   background-color: var(--black-bg-color);
   color: var(--pink-text-color);
   font-family: var(--primary-text-font);
+  background-color: wheat;
 
-  // phone
-  @media screen and (max-width: 767.98px) {
-    background-image: url(../images/main-bg/bg-body-phone.png);
-    background-repeat: no-repeat;
-    background-size: 2002px;
-    background-position: center;
-  }
-
-  // tablet
-
-  @media screen and (min-width: 768px) {
-    background-image: url(../images/main-bg/bg-body-tablet.png);
-    background-repeat: no-repeat;
-    background-size: 1000px 2000px;
-    background-position: center;
-  }
-
-  @media screen and (min-width: 1280px) {
-
-    background-image: url(../images/main-bg/bg-body-deckstop.png);
-    background-repeat: no-repeat;
-    background-size: 1280px 2090px;
-    background-position: center 446px;
-
-    // background: rgb(2, 0, 36);
-    //   background: linear-gradient(49deg, rgba(2, 0, 36, 1) 35%, rgba(121, 9, 113, 1) 100%, rgba(0, 212, 255, 1) 100%);
-
-
-  }
-
-
-  &.no-scroll {
-    overflow: hidden;
-  }
+  background: rgb(20, 1, 23);
+  background: radial-gradient(circle, rgba(20, 1, 23, 1) 0%, rgba(0, 0, 0, 0.9444152661064426) 100%);
 
 }

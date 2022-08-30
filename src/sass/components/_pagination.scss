@@ -89,9 +89,11 @@
   background-position: 0px -12px;
   // background-position: -13px -12px;
 }
+
 .tui-pagination .tui-is-disabled:hover {
   border-color: transparent;
 }
+
 .tui-page-inputs {
   display: inline-block;
   vertical-align: top;
@@ -115,6 +117,7 @@
 }
 
 #pagination.tui-pagination {
+
   .tui-first,
   .tui-prev,
   .tui-next,

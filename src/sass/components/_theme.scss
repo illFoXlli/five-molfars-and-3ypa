@@ -1,3 +1,8 @@
+.dark body {
+    background: rgb(21, 2, 22);
+    background: linear-gradient(138deg, rgba(21, 2, 22, 0.4738270308123249) 0%, rgba(252, 252, 252, 0.8827906162464986) 100%);
+}
+
 .dark .header {
     position: relative;
     padding-bottom: 60px;
@@ -11,12 +16,13 @@
         filter: brightness(300%) contrast(124%) grayscale(57%) hue-rotate(263deg) invert(95%) opacity(97%) saturate(275%);
 
         @media screen and (max-width: 767.98px) {
+
             background-image: url(../images/header-bg/pic.png);
             background-repeat: no-repeat;
+            width: 500px;
             background-position: center top;
             width: 320px;
             height: 364px;
-
             filter: brightness(300%) contrast(124%) grayscale(57%) hue-rotate(263deg) invert(95%) opacity(97%) saturate(275%);
         }
 
@@ -39,7 +45,7 @@
 
 
             filter: brightness(300%) contrast(158%) grayscale(38%) hue-rotate(165deg) invert(92%) opacity(89%) saturate(131%) sepia(17%);
-
+            box-shadow: rgba(240, 46, 170, 0.4) -5px 5px, rgba(240, 46, 170, 0.3) -10px 10px, rgba(240, 46, 170, 0.2) -15px 15px, rgba(240, 46, 170, 0.1) -20px 20px, rgba(240, 46, 170, 0.05) -25px 25px;
         }
     }
 }
@@ -48,7 +54,7 @@
     position: relative;
     animation: blink1 8s infinite;
     color: var(--black-text-color);
-    z-index: 100;
+    z-index: 200;
 }
 
 .dark .container {
@@ -57,17 +63,17 @@
     &__bg {
         position: absolute;
 
-        left: 0;
-        top: 0;
+        // left: 0;
+        // top: 0;
 
         // phone
         @media screen and (min-width: 319.98px) and (max-width: 767.98px) {
             background-image: url(../images/main-bg/bg-body-phone.png);
             background-repeat: no-repeat;
-            width: 320;
+            width: 400px;
             height: 2750px;
             background-size: 1500px;
-            background-position: center 51px;
+            background-position: 81px 51px;
             filter: brightness(300%) contrast(158%) grayscale(38%) hue-rotate(165deg) invert(92%) opacity(89%) saturate(131%) sepia(17%);
 
         }
@@ -96,6 +102,8 @@
             background-position: center 51px;
             filter: brightness(300%) contrast(158%) grayscale(38%) hue-rotate(165deg) invert(92%) opacity(89%) saturate(131%) sepia(17%);
 
+
+            box-shadow: rgba(240, 46, 170, 0.4) -5px 5px, rgba(240, 46, 170, 0.3) -10px 10px, rgba(240, 46, 170, 0.2) -15px 15px, rgba(240, 46, 170, 0.1) -20px 20px, rgba(240, 46, 170, 0.05) -25px 25px;
 
         }
     }
