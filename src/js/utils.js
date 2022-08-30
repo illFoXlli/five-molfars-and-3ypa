@@ -7,10 +7,10 @@ export function spinerOn() {
 }
 
 export function getFromSS(key) {
-  let data = sessionStorage.getItem(JSON.stringify(key));
+  let data = localStorage.getItem(JSON.stringify(key));
   return JSON.parse(data);
 }
 
 export function saveToSS(key, res) {
-  sessionStorage.setItem(JSON.stringify(key), JSON.stringify(res));
+  localStorage.setItem(JSON.stringify(key), JSON.stringify(res));
 }

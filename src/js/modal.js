@@ -6,9 +6,8 @@ const backdropModal = document.querySelector('[data-modal]');
 // const cardOnClick = document.querySelector('.event');
 const boxOnClick = document.querySelector('.events');
 let findUl;
-
-let getDataSS = getFromSS(key);
-let getCards = getDataSS.data._embedded.events;
+let getDataSS;
+let getCards;
 
 closeModalBtn.addEventListener('click', toggleModal);
 // cardOnClick.addEventListener('click', onCardClick);
@@ -21,10 +20,10 @@ function toggleModal() {
 }
 
 function onCardClick(event) {
+  getDataSS = getFromSS(key);
+  getCards = getDataSS.data._embedded.events;
   //  console.log(event.target);
   if (event.target.nodeName !== 'DIV') {
-    getDataSS = getFromSS(key);
-    getCards = getDataSS.data._embedded.events;
     findUl = event.target.closest('ul').id;
     // console.log(findUl);
     backdropModal.classList.toggle('is-hidden');
