@@ -8,6 +8,7 @@ const boxOnClick = document.querySelector('.events');
 let findUl;
 let getDataSS;
 let getCards;
+export let authorName;
 
 console.log(closeModalBtn);
 closeModalBtn.addEventListener('click', toggleModal);
@@ -38,15 +39,16 @@ function getCard(getCards, findUl) {
   let filterCard = getCards.find(card => card.id === findUl);
   console.log(getCards);
   markupModal(filterCard);
+  console.log(filterCard._embedded.venues[0].name);
+  authorName = filterCard._embedded.venues[0].name;
 }
-
-function markupModal({ images, info }) {
+// let xxxx = getCard(getCards, findUl);
+console.log(authorName);
+function markupModal({ images, info, priceRanges }) {
+  // console.log(priceRanges[0]);
   let img = document.querySelector('.modal img.modal__img');
   img.src = images[0].url;
   let infoText = document.querySelector('.modal p.modal__list-text');
-  let infoPrice = document.querySelector('.modal p.modal__list-text');
-
-  // console.log(info.length);
   try {
     if (info === undefined) {
       infoText.textContent = accessibility.info;
@@ -55,6 +57,10 @@ function markupModal({ images, info }) {
   } catch {
     infoText.textContent = 'No text 🍲';
   }
+  let infoPrice = document.querySelector('.modal span.modal__standart');
+  infoPrice.textContent = `${priceRanges[0].type.toUpperCase()} ${
+    priceRanges[0].min
+  }-${priceRanges[0].max} ${priceRanges[0].currency}`;
 
   /* dispatchEvent.textContet;
   backdropModal.innerHTML = `
