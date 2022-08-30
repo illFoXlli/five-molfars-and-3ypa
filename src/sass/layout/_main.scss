@@ -9,10 +9,12 @@
     row-gap: 30px;
     column-gap: 20px;
     margin-top: -51px;
+
     @media screen and (min-width: 460px) {
         row-gap: 50px;
         column-gap: 30px;
     }
+
     @media screen and (min-width: 768px) {
         row-gap: 42px;
     }
@@ -69,7 +71,7 @@
         }
     }
 
-    &__img > img {
+    &__img>img {
         position: relative;
         width: 120px;
         height: 151px;
@@ -88,10 +90,12 @@
             height: 337px;
         }
     }
+
     &__title {
         margin-top: 8px;
     }
-    &__title > h2 {
+
+    &__title>h2 {
         width: 130px;
         font-weight: 700;
         font-size: 14px;
@@ -106,16 +110,19 @@
             line-height: calc(19.5 / 16);
             min-height: 80px;
         }
+
         @media screen and (min-width: 1280px) {
             width: 288px;
             min-height: 40px;
             maerin-top: 12px;
         }
     }
+
     &__start {
         margin-top: 4px;
     }
-    &__start > span {
+
+    &__start>span {
         margin-right: auto;
         margin-left: auto;
         color: var(--primary-white-text-color);
@@ -127,10 +134,12 @@
             font-size: 16px;
             line-height: calc(19.5 / 14);
         }
+
         @media screen and (min-width: 1280px) {
             width: 288px;
         }
     }
+
     &__place {
         display: flex;
         justify-content: center;
@@ -138,7 +147,8 @@
         margin-top: 4px;
 
         color: var(--primary-white-text-color);
-        & > svg {
+
+        &>svg {
             width: 6px;
             height: 9px;
             fill: var(--primary-white-text-color);
@@ -148,7 +158,8 @@
                 height: 12px;
             }
         }
-        & > .location {
+
+        &>.location {
             display: inline-block;
             font-weight: 600;
             font-size: 12px;
@@ -173,6 +184,7 @@
     margin-top: 60px;
     width: 233px;
     height: 30px;
+<<<<<<< HEAD
 }
 
 .svgFill {
