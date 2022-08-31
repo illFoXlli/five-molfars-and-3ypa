@@ -5,6 +5,7 @@ import {
   saveToSS,
   notificationOk,
   notificationErorr,
+  notificationErorrIcon,
 } from '../js/utils.js';
 import axios from 'axios';
 import { pageMenu } from '../js/pagination';
@@ -112,9 +113,10 @@ function setPaginationServer(totalPages, key) {
 export function renderElems(data) {
   try {
     let LSElements = data._embedded.events;
+
     eventsList.innerHTML = renderCard(LSElements);
-  } catch (error) {
-    console.log('===================================', data);
+  } catch {
+    notificationErorrIcon();
   }
 }
 
