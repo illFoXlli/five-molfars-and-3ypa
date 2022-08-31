@@ -4,11 +4,12 @@
 
 .btn-up {
   position: fixed;
-  bottom: 80px;
-  right: 20px;
+  z-index: 3000;
+  bottom: 60px;
+  right: 10px;
   @media screen and (min-width: 768px) {
     bottom: 27px;
-    right: 60px;
+    right: 20px;
   }
   cursor: pointer;
   opacity: 1;
