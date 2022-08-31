@@ -5,6 +5,7 @@ import {
   saveToSS,
   notificationOk,
   notificationErorr,
+  notificationErorrIcon,
 } from '../js/utils.js';
 import axios from 'axios';
 import { pageMenu } from '../js/pagination';
@@ -58,7 +59,15 @@ export const fetchServer = ({
       return axios.get(`${BASE_URL}`, { params }).then(res => {
         try {
           if (res.data._embedded !== undefined) {
-            //console.log(res.data._embedded.events.length);
+            console.log('=====IF ONE=====');
+            saveToSS(key, res);
+            setTotalPage(res.data.page.totalElements);
+            renderElems(res.data);
+            setPaginationServer(totalPages, key);
+            console.log(res.data._embedded.events);
+            return res.data;
+          } else if (res !== undefined) {
+            console.log('=====ELSE IF=====');
             saveToSS(key, res);
             setTotalPage(res.data.page.totalElements);
             renderElems(res.data);
@@ -69,17 +78,7 @@ export const fetchServer = ({
             notificationErorr();
           }
         } catch {
-          if (res.data !== undefined) {
-            //console.log(res.data._embedded.events.length);
-            saveToSS(key, res);
-            setTotalPage(res.data.page.totalElements);
-            renderElems(res.data);
-            setPaginationServer(totalPages, key);
-            console.log(res.data._embedded.events);
-            return res.data;
-          } else {
-            notificationErorr();
-          }
+          console.log('=====CATCH=====');
         }
       });
     } catch {}
@@ -114,9 +113,10 @@ function setPaginationServer(totalPages, key) {
 export function renderElems(data) {
   try {
     let LSElements = data._embedded.events;
+
     eventsList.innerHTML = renderCard(LSElements);
-  } catch (error) {
-    console.log('===================================', data);
+  } catch {
+    notificationErorrIcon();
   }
 }
 
@@ -136,10 +136,10 @@ function setPaginationLS(totalPages, key) {
 }
 
 function setTotalPage(number) {
-  if (number < 960) {
+  if (number < 976) {
     totalPages = number;
   } else {
-    totalPages = 960;
+    totalPages = 976;
   }
 }
 

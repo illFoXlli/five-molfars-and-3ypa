@@ -21,7 +21,6 @@ export function toggleModal() {
   // console.log('ykjmdtgy');
   document.body.classList.remove('no-scroll');
 }
-
 function onCardClick(event) {
   getDataSS = getFromSS(key);
   getCards = getDataSS.data._embedded.events;
