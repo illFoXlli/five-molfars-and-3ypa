@@ -1,4 +1,5 @@
 .header {
+  position: relative;
   padding-bottom: 60px;
   height: 364px;
   max-width: 1600px;
@@ -6,8 +7,6 @@
   margin-left: auto;
   margin-right: auto;
   background-size: cover;
-
-
 
   @media screen and (max-width: 767.98px) {
     background-image: url(../images/header-bg/pic.png);
@@ -35,6 +34,46 @@
     height: 446px;
 
     box-shadow: rgba(0, 0, 0, 0.56) 0px 22px 70px 4px;
+  }
+}
+
+.header {
+
+  position: relative;
+
+  &__logo {
+
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 300;
+
+    @media screen and (max-width: 767.98px) {
+      background-image: url(../images/logo/logo-phone.png);
+      background-repeat: no-repeat;
+      height: 300px;
+      width: 300px;
+      filter: brightness(93%) contrast(124%) grayscale(15%) hue-rotate(20deg) invert(10%) opacity(77%) saturate(24%) sepia(13%);
+    }
+
+    @media screen and (min-width: 768px) {
+      background-image: url(../images/logo/logo-tablet.png);
+      background-repeat: no-repeat;
+      height: 300px;
+      width: 300px;
+      filter: brightness(93%) contrast(124%) grayscale(15%) hue-rotate(20deg) invert(10%) opacity(77%) saturate(24%) sepia(13%);
+
+    }
+
+    @media screen and (min-width: 1280px) {
+      background-image: url(../images/logo/logo-desk.png);
+      background-repeat: no-repeat;
+      height: 300px;
+      width: 300px;
+
+      filter: brightness(93%) contrast(124%) grayscale(15%) hue-rotate(20deg) invert(10%) opacity(77%) saturate(24%) sepia(13%);
+
+    }
   }
 }
 
@@ -71,7 +110,6 @@
     box-shadow: rgba(0, 0, 0, 0.56) 0px 22px 70px 4px;
   }
 }
-
 
 .header__title {
   margin: 0 auto;

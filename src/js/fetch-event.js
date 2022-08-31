@@ -5,6 +5,7 @@ import {
   saveToSS,
   notificationOk,
   notificationErorr,
+  notificationErorrIcon,
 } from '../js/utils.js';
 import axios from 'axios';
 import { pageMenu } from '../js/pagination';
@@ -14,6 +15,7 @@ const BASE_URL = 'https://app.ticketmaster.com/discovery/v2/events';
 const API_KEY = 'unEzXyPGRdZtlW4MZOT74rfieLb91xjQ';
 const form = document.querySelector('#form');
 const eventsList = document.querySelector('.events');
+const img = document.querySelector('.event__img');
 
 let keyword = 'vs';
 let countryCode = 'US';
@@ -112,9 +114,14 @@ function setPaginationServer(totalPages, key) {
 export function renderElems(data) {
   try {
     let LSElements = data._embedded.events;
+
+    LSElements = LSElements.map(elem => {
+      elem.images = elem.images.sort((a, b) => b.width - a.width);
+      return elem;
+    });
     eventsList.innerHTML = renderCard(LSElements);
-  } catch (error) {
-    console.log('===================================', data);
+  } catch {
+    notificationErorrIcon();
   }
 }
 
