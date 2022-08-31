@@ -1,3 +1,4 @@
+import './js/consts';
 import './js/fetch-event';
 import './js/preloader';
 import './js/button-up';
