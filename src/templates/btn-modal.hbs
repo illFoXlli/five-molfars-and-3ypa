@@ -1,0 +1,13 @@
+     
+     <h2 class="modal__list-title modal__list-title--modal">PRICES</h2>
+      {{#each this.priceRanges}}
+          <p class="modal__list-text dash">
+            <svg class="modal__svg" width="24" height="16" id="ticket" viewBox="0 0 45 32">
+            <path d="M5.02 1.569H0v30.118h5.02V1.569zM17.645 1.569h-5.02v30.118h5.02V1.569zM25.25 1.569h-5.019v30.118h5.019V1.569zM45.177 1.569h-7.453v30.118h7.453V1.569zM10.039 1.569H7.605v30.118h2.434V1.569zM30.118 1.569h-2.434v30.118h2.434V1.569zM35.137 1.569h-2.434v30.118h2.434V1.569z"/>      
+            </svg>
+            <span class="modal__standart" style='text-transform:capitalize'>{{type}} {{min}}-{{max}} {{currency}}</span>
+          </p>
+          <div class="btn-wrapper"><a class="btnBuy" href="https://www.ticketmaster.com/phoenix-suns-vs-sacramento-kings-phoenix-arizona-02-14-2023/event/19005D0B8F681480" ><button
+                class="modal__list-btn">BUY TICKETS</button></a>
+          </div>
+          {{/each}}
