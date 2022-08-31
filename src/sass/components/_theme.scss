@@ -51,7 +51,8 @@
 .toggle {
     position: fixed;
     top: -75px;
-    left: -75px;
+    // left: -75px;
+    right: 0;
     width: 150px;
     height: 150px;
     border: none;
@@ -187,3 +188,8 @@
 //     color: inherit;
 //     box-sizing: inherit;
 // }
+
+
+.dark img {
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 50px;
+}
