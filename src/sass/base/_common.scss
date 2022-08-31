@@ -49,14 +49,12 @@ img {
 }
 
 body {
- //feature/modal
+  //feature/modal
 
 
   background-color: var(--black-bg-color);
   color: var(--pink-text-color);
   font-family: var(--primary-text-font);
-
-  background-color: white;
 
   // phone
   @media screen and (max-width: 768px) {
@@ -94,41 +92,9 @@ body {
 // white theme
 
 .dark body {
- dev
   background-color: var(--black-bg-color);
   color: var(--pink-text-color);
   font-family: var(--primary-text-font);
-
-feature/modal
-  background: rgb(20, 1, 23);
-  background: radial-gradient(
-    circle,
-    rgba(20, 1, 23, 1) 0%,
-    rgba(0, 0, 0, 0.9444152661064426) 100%
-  );
-  // border: solid 1px #0000ff;
-  // background: #ddffff;
-}
-.no-scroll {
-  overflow: hidden;
-  border-right: 7px solid transparent;
-}
-::-webkit-scrollbar {
-  width: 7px;
-}
-::-webkit-scrollbar-thumb {
-  background: linear-gradient(transparent, #b03689);
-
-  border-radius: 6px;
-}
-::-webkit-scrollbar-thumb:hover {
-  background: linear-gradient(transparent, #a91079);
-}
-::-webkit-scrollbar-track {
-  background: black;
-}
-
-  background-color: white;
 
   // phone
   @media screen and (max-width: 768px) {
@@ -159,11 +125,42 @@ feature/modal
     // background: rgb(20, 1, 23);
     // background: radial-gradient(circle, rgba(20, 1, 23, 1) 0%, rgba(0, 0, 0, 0.9444152661064426) 100%);
   }
+
+
+  background: rgb(20, 1, 23);
+  background: radial-gradient(circle,
+    rgba(20, 1, 23, 1) 0%,
+    rgba(0, 0, 0, 0.9444152661064426) 100%);
+  // border: solid 1px #0000ff;
+  // background: #ddffff;
 }
 
-.main-background {}
+
 
 
 // background: rgb(20, 1, 23);
 // background: radial-gradient(circle, rgba(20, 1, 23, 1) 0%, rgba(0, 0, 0, 0.9444152661064426) 100%);
 
+
+.no-scroll {
+  overflow: hidden;
+  border-right: 7px solid transparent;
+}
+
+::-webkit-scrollbar {
+  width: 7px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(transparent, #b03689);
+
+  border-radius: 6px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(transparent, #a91079);
+}
+
+::-webkit-scrollbar-track {
+  background: black;
+}
