@@ -20,7 +20,6 @@
     background-size: cover;
     margin-left: auto;
     margin-right: auto;
-
   }
 
   @media screen and (min-width: 1280px) {
@@ -38,11 +37,9 @@
 }
 
 .header {
-
   position: relative;
 
   &__logo {
-
     position: absolute;
     top: 0;
     left: 0;
@@ -51,28 +48,32 @@
     @media screen and (max-width: 767.98px) {
       background-image: url(../images/logo/logo-phone.png);
       background-repeat: no-repeat;
+      pointer-events: none;
       height: 300px;
       width: 300px;
-      filter: brightness(93%) contrast(124%) grayscale(15%) hue-rotate(20deg) invert(10%) opacity(77%) saturate(24%) sepia(13%);
+      filter: brightness(93%) contrast(124%) grayscale(15%) hue-rotate(20deg)
+        invert(10%) opacity(77%) saturate(24%) sepia(13%);
     }
 
     @media screen and (min-width: 768px) {
       background-image: url(../images/logo/logo-tablet.png);
       background-repeat: no-repeat;
+      pointer-events: none;
       height: 300px;
       width: 300px;
-      filter: brightness(93%) contrast(124%) grayscale(15%) hue-rotate(20deg) invert(10%) opacity(77%) saturate(24%) sepia(13%);
-
+      filter: brightness(93%) contrast(124%) grayscale(15%) hue-rotate(20deg)
+        invert(10%) opacity(77%) saturate(24%) sepia(13%);
     }
 
     @media screen and (min-width: 1280px) {
       background-image: url(../images/logo/logo-desk.png);
       background-repeat: no-repeat;
+      pointer-events: none;
       height: 300px;
       width: 300px;
 
-      filter: brightness(93%) contrast(124%) grayscale(15%) hue-rotate(20deg) invert(10%) opacity(77%) saturate(24%) sepia(13%);
-
+      filter: brightness(93%) contrast(124%) grayscale(15%) hue-rotate(20deg)
+        invert(10%) opacity(77%) saturate(24%) sepia(13%);
     }
   }
 }
@@ -138,7 +139,6 @@
 }
 
 @keyframes blink {
-
   20%,
   24%,
   55% {
@@ -219,12 +219,16 @@
     width: 288px;
   }
 }
-
+.dark .search__input {
+  background: var(--secondary-modal-bg-color);
+}
 .custom-select-opener:focus {
   height: 40px;
-  background-image: linear-gradient(45deg,
+  background-image: linear-gradient(
+      45deg,
       #0000 50%,
-      var(--pink-text-color) 50%),
+      var(--pink-text-color) 50%
+    ),
     linear-gradient(135deg, var(--pink-text-color) 50%, #0000 50%) !important;
   background-position: calc(100% - 34px) calc(1em + 2px),
     calc(100% - 26px) calc(1em + 2px), calc(100% - 2.5em) 0.5em !important;
@@ -244,7 +248,12 @@
   padding: 1px 0px 1px 30px;
   cursor: pointer;
 }
-
+.dark .custom-select-opener {
+  background: var(--secondary-modal-bg-color);
+}
+.dark .custom-select-panel {
+  background: var(--secondary-modal-bg-color);
+}
 .custom-select-option.has-focus {
   background-color: var(--pink-text-color);
   transition: cubic-bezier(0.4, 0, 0.2, 1), 250ms, background-color;
@@ -374,8 +383,7 @@
 }
 
 [data-value='US'] {
-  margin-top: 30px;
-  border-top: 2px solid gray;
+  margin-top: 34px;
 }
 
 .custom-select-option:first-child {
@@ -393,12 +401,65 @@
   }
 }
 
-.search__input:hover+.search__button>.search__icon,
-.search__input:focus+.search__button>.search__icon {
+.search__input:hover + .search__button > .search__icon,
+.search__input:focus + .search__button > .search__icon {
   fill: var(--pink-text-color);
 }
 
 .search__input::selection {
   background-color: var(--pink-text-color);
   color: #ccc;
+}
+
+.dark .header__title {
+  color: black;
+  animation: blink 8s infinite;
+  @keyframes blink {
+    20%,
+    24%,
+    55% {
+      color: pink;
+      text-shadow: none;
+    }
+
+    0%,
+    19%,
+    21%,
+    23%,
+    25%,
+    54%,
+    56%,
+    100% {
+      text-shadow: 0 0 5px var(--title-text-animation-color),
+        0 0 15px var(--title-text-animation-color),
+        0 0 20px var(--title-text-animation-color),
+        0 0 40px var(--title-text-animation-color),
+        0 0 60px var(--title-text-animation-color),
+        0 0 10px var(--title-text-animation-color),
+        0 0 98px var(--title-text-animation-color);
+      color: var(--primary-white-text-color);
+    }
+  }
+}
+.custom-select-panel::before {
+  content: '';
+  width: 233px;
+  height: 2px;
+  background-color: #939393;
+  border-radius: 3px;
+  display: block;
+  position: absolute;
+  top: 29px;
+  left: 14px;
+
+  @media screen and (min-width: 768px) {
+    width: 287px;
+    height: 3px;
+    top: 28px;
+    left: 15px;
+  }
+  @media screen and (min-width: 1280px) {
+    width: 241px;
+    top: 30px;
+  }
 }
