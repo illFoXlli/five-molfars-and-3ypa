@@ -75,7 +75,7 @@
 }
 
 .toggle .toggle-overlay:hover {
-  box-shadow: 0 0 10px;
+  box-shadow: 0 0 10px #dc56c5;
 }
 
 .toggle .moon,
@@ -94,7 +94,7 @@
   left: 85px;
   box-shadow: 0 0 10px 2px #eeeeee;
   transform: rotate(160deg);
-  background: #dedede;
+  background: #dc56c5;
 }
 
 .toggle .moon {
@@ -128,7 +128,7 @@
 }
 
 .toggle.night .toggle-overlay:hover {
-  box-shadow: 0 0 10px #d4d7dd;
+  box-shadow: 0 0 10px;
 }
 
 @keyframes rotateNight {
