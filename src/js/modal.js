@@ -10,17 +10,26 @@ let getDataSS;
 let getCards;
 export let authorName;
 
-console.log(closeModalBtn);
+// console.log(closeModalBtn);
 closeModalBtn.addEventListener('click', toggleModal);
-// cardOnClick.addEventListener('click', onCardClick);
+backdropModal.addEventListener('click', closeModal);
 // cardOnClick.addEventListener('click', onCardClick);
 boxOnClick.addEventListener('click', onCardClick);
 
-export function toggleModal() {
+export function toggleModal(e) {
   backdropModal.classList.toggle('is-hidden');
-  // console.log('ykjmdtgy');
   document.body.classList.remove('no-scroll');
 }
+
+function closeModal(e) {
+  if (e.target !== e.currentTarget) {
+    backdropModal.classList.toggle('is-hidden');
+  }
+  if (e.code !== 'Escape') {
+    backdropModal.classList.toggle('is-hidden');
+  }
+}
+
 function onCardClick(event) {
   getDataSS = getFromSS(key);
   getCards = getDataSS.data._embedded.events;
@@ -36,21 +45,46 @@ function onCardClick(event) {
 
 function getCard(getCards, findUl) {
   let filterCard = getCards.find(card => card.id === findUl);
-  console.log(getCards);
+  filterCard.images = filterCard.images.sort((a, b) => b.width - a.width);
   markupModal(filterCard);
-  console.log(filterCard._embedded.venues[0].name);
   authorName = filterCard._embedded.venues[0].name;
 }
+
 // let xxxx = getCard(getCards, findUl);
 // console.log(authorName);
-function markupModal({ images, info, priceRanges, dates }) {
-  // console.log(priceRanges[0]);
+function markupModal({ images, info, priceRanges, dates, _embedded }) {
+  // console.log(images);
   let img = document.querySelector('.modal img.modal__img');
   img.src = images[0].url;
   let infoWhen = document.querySelector('.whenDate');
   infoWhen.textContent = `${dates.start.localDate}`;
   let infoWhenTime = document.querySelector('.secondP');
   infoWhenTime.textContent = `${dates.start.localTime} (${dates.timezone})`;
+  let infoWhereStreet = document.querySelector('.whereInfo');
+  let street = _embedded.venues[0].address.line1;
+  infoWhereStreet.textContent = `${street}`;
+  let infoWhereCityCountry = document.querySelector('.whereCityCountry');
+  let city = _embedded.venues[0].city.name;
+  let country = _embedded.venues[0].country.name;
+  infoWhereCityCountry.textContent = `${city}, ${country}`;
+  let whoInfo = document.querySelector('.whoInfo');
+  let whoFirst = _embedded.attractions[0].name;
+  let whoSecond = _embedded.attractions[1].name;
+  whoInfo.textContent = `${whoFirst}/${whoSecond}`;
+
+  console.log(_embedded);
+
+  // if (street === undefined) {
+  //   street = `No street!`;
+  // } else {
+  //   return street;
+  // }
+
+  // console.log(dates._embedded.venues[0].name);
+  // let buyTickets = document.querySelector('.list-btn');
+  // buyTickets.addEventListener('click', onClickBtnBuyTickets);
+  // infoWhenTime.textContent = `${dates.start.localTime} (${dates.timezone})`;
+  // function onClickBtnBuyTickets(event) {}
   let infoText = document.querySelector('.modal p.modal__list-text');
   try {
     if (info === undefined) {
