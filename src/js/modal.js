@@ -3,17 +3,14 @@ import { key } from './fetch-event';
 
 let closeModalBtn = document.querySelector('[data-modal-close]');
 const backdropModal = document.querySelector('[data-modal]');
-// const cardOnClick = document.querySelector('.event');
 const boxOnClick = document.querySelector('.events');
 let findUl;
 let getDataSS;
 let getCards;
 export let authorName;
 
-// console.log(closeModalBtn);
 closeModalBtn.addEventListener('click', toggleModal);
 backdropModal.addEventListener('click', closeModal);
-// cardOnClick.addEventListener('click', onCardClick);
 boxOnClick.addEventListener('click', onCardClick);
 
 export function toggleModal(e) {
@@ -22,21 +19,30 @@ export function toggleModal(e) {
 }
 
 function closeModal(e) {
-  if (e.target !== e.currentTarget) {
+  if (e.target === e.currentTarget) {
     backdropModal.classList.toggle('is-hidden');
+    document.body.classList.remove('no-scroll');
   }
+}
+document.addEventListener('keydown', closeByKey);
+
+function closeByKey(e) {
   if (e.code !== 'Escape') {
+    return;
+  } else {
     backdropModal.classList.toggle('is-hidden');
+    document.body.classList.remove('no-scroll');
+    document.removeEventListener('keydown', closeByKey);
   }
 }
 
 function onCardClick(event) {
+  document.addEventListener('keydown', closeByKey);
+
   getDataSS = getFromSS(key);
   getCards = getDataSS.data._embedded.events;
-  //  console.log(event.target);
   if (event.target.nodeName !== 'DIV') {
     findUl = event.target.closest('ul').id;
-    // console.log(findUl);
     backdropModal.classList.toggle('is-hidden');
     document.body.classList.add('no-scroll');
     getCard(getCards, findUl);
@@ -50,10 +56,7 @@ function getCard(getCards, findUl) {
   authorName = filterCard._embedded.venues[0].name;
 }
 
-// let xxxx = getCard(getCards, findUl);
-// console.log(authorName);
 function markupModal({ images, info, priceRanges, dates, _embedded }) {
-  // console.log(images);
   let img = document.querySelector('.modal img.modal__img');
   img.src = images[0].url;
   let infoWhen = document.querySelector('.whenDate');
@@ -68,9 +71,23 @@ function markupModal({ images, info, priceRanges, dates, _embedded }) {
   let country = _embedded.venues[0].country.name;
   infoWhereCityCountry.textContent = `${city}, ${country}`;
   let whoInfo = document.querySelector('.whoInfo');
-  let whoFirst = _embedded.attractions[0].name;
-  let whoSecond = _embedded.attractions[1].name;
-  whoInfo.textContent = `${whoFirst}/${whoSecond}`;
+
+  try {
+    let whoFirst = _embedded.attractions[0].name;
+    let whoSecond = _embedded.attractions[1].name;
+    whoInfo.textContent = `${whoFirst}/${whoSecond}`;
+  } catch {
+    let whoFirst = _embedded.attractions[0].name;
+    whoInfo.textContent = `${whoFirst}`;
+  }
+  //  try {
+  //    if (info === undefined) {
+  //      infoText.textContent = accessibility.info;
+  //    }
+  //    infoText.textContent = info;
+  //  } catch {
+  //    infoText.textContent = 'No text 🍲';
+  //  }
 
   console.log(_embedded);
 
