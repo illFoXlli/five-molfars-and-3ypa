@@ -11,16 +11,17 @@ import axios from 'axios';
 import { pageMenu } from '../js/pagination';
 import renderCard from '../templates/card-tpl.hbs';
 import LazyLoad from 'vanilla-lazyload';
+import { API_KEY } from './consts';
 
-const BASE_URL = 'https://app.ticketmaster.com/discovery/v2/events';
-const API_KEY = 'unEzXyPGRdZtlW4MZOT74rfieLb91xjQ';
+const BASE_URL = 'https://app.ticketmaster.com/discovery/v2/events.json';
+
 const form = document.querySelector('#form');
 const eventsList = document.querySelector('.events');
 const img = document.querySelector('.event__img');
 
 let keyword = 'vs';
 let countryCode = 'US';
-let numberCardByPage = 50;
+let numberCardByPage = 16;
 let totalPages = 100;
 let startPage = 1;
 
