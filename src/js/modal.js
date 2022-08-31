@@ -51,12 +51,12 @@ function onCardClick(event) {
 
 function getCard(getCards, findUl) {
   let filterCard = getCards.find(card => card.id === findUl);
+  console.log(filterCard);
   filterCard.images = filterCard.images.sort((a, b) => b.width - a.width);
   markupModal(filterCard);
   authorName = filterCard._embedded.venues[0].name;
 }
-
-function markupModal({ images, info, priceRanges, dates, _embedded }) {
+function markupModal({ images, info, priceRanges, dates, _embedded, url }) {
   let img = document.querySelector('.modal img.modal__img');
   img.src = images[0].url;
   let infoWhen = document.querySelector('.whenDate');
@@ -80,28 +80,7 @@ function markupModal({ images, info, priceRanges, dates, _embedded }) {
     let whoFirst = _embedded.attractions[0].name;
     whoInfo.textContent = `${whoFirst}`;
   }
-  //  try {
-  //    if (info === undefined) {
-  //      infoText.textContent = accessibility.info;
-  //    }
-  //    infoText.textContent = info;
-  //  } catch {
-  //    infoText.textContent = 'No text 🍲';
-  //  }
 
-  console.log(_embedded);
-
-  // if (street === undefined) {
-  //   street = `No street!`;
-  // } else {
-  //   return street;
-  // }
-
-  // console.log(dates._embedded.venues[0].name);
-  // let buyTickets = document.querySelector('.list-btn');
-  // buyTickets.addEventListener('click', onClickBtnBuyTickets);
-  // infoWhenTime.textContent = `${dates.start.localTime} (${dates.timezone})`;
-  // function onClickBtnBuyTickets(event) {}
   let infoText = document.querySelector('.modal p.modal__list-text');
   try {
     if (info === undefined) {
@@ -119,103 +98,10 @@ function markupModal({ images, info, priceRanges, dates, _embedded }) {
   } catch {
     console.log('Price is not defined');
   }
+  let btnBuy = document.querySelector('.btnBuy');
+  btnBuy.addEventListener('click', onBuyTicketClick);
 
-  /* dispatchEvent.textContet;
-  backdropModal.innerHTML = `
-          <div class="modal">
-    <button class="modal__menu-btn-close" type="button" data-modal-close>
-      <svg class="modal__svg" width="17" height="17" id="close" viewBox="0 0 32 32">
-              <path d="M1.646 32a1.646 1.646 0 0 1-1.163-2.811L29.19.482a1.646 1.646 0 1 1 2.328 2.329L2.811 31.517A1.65 1.65 0 0 1 1.646 32z"/>
-      <path d="M30.355 32c-.421 0-.843-.16-1.163-.483L.483 2.811A1.647 1.647 0 0 1 2.812.482l28.707 28.707A1.646 1.646 0 0 1 30.356 32z"/>
-         </svg>
-    </button>
-    <div class="modal__wrapper">
-      <img class="modal__img" src="${images[0].url}" alt="" />
-      <ul class="modal__list">
-        <li>
-          <h2 class="modal__list-title">INFO</h2>
-          <p class="modal__list-text">
-            Atlas Weekend is the largest music festival in Ukraine. More than
-            200 artists will create a proper music festival atmosphere on 10
-            stages
-          </p>
-        </li>
-        <li class="modal__list-item">
-          <h2 class="modal__list-title">WHEN</h2>
-          <p class="modal__list-text">2021-06-09</p>
-          <p class="modal__list-text secondP">20:00 (Kyiv/Ukraine)</p>
-        </li>
-        <li class="modal__list-item">
-          <h2 class="modal__list-title">WHERE</h2>
-          <p class="modal__list-text">Kyiv, Ukraine</p>
-          <p class="modal__list-text secondP">VDNH</p>
-        </li>
-        <li class="modal__list-item">
-          <h2 class="modal__list-title">WHO</h2>
-          <p class="modal__list-text">The Black Eyed Peas</p>
-        </li>
-        <li class="modal__list-item">
-          <h2 class="modal__list-title">PRICES</h2>
-          <p class="modal__list-text dash">
-            <svg class="modal__svg" width="24" height="16">
-              <use class="burger-menu__close" href="./images/svg/symbol-defs.svg#ticket">
-              </use>
-            </svg>
-            <span class="modal__standart">Standart 300-500 UAH</span>
-          </p>
-
-          <div class="btn-wrapper">
-            <button class="modal__list-btn">BUY TICKETS</button>
-          </div>
-          <p class="modal__list-text dash">
-            <svg class="modal__svg" width="24" height="16">
-              <use class="burger-menu__close" href="./images/svg/symbol-defs.svg#ticket"></use>
-            </svg><span class="modal__vip">VIP 1000-1500 UAH</span>
-          </p>
-          <div class="btn-wrapper">
-            <button class="modal__list-btn">BUY TICKETS</button>
-          </div>
-        </li>
-      </ul>
-    </div>
-    <div class="btn-wrapper-more">
-      <button class="modal__list-btn-more">MORE FROM THIS AUTHOR</button>
-    </div>
-  </div>`; */
+  function onBuyTicketClick() {
+    return btnBuy.setAttribute('href', `${url}`);
+  }
 }
-
-// let cardInfo = getCard(getCards, findUl);
-// console.log(cardInfo);
-
-// console.log(getCard);
-
-// export function getFromSS(key) {
-//   let data = sessionStorage.getItem(JSON.stringify(key));
-//   return JSON.parse(data);
-// }
-// const BASE_URL = 'https://app.ticketmaster.com/discovery/v2/events';
-// const API_KEY = 'unEzXyPGRdZtlW4MZOT74rfieLb91xjQ';
-
-// export const fetchServer = (page, keyword, countryCode) => {
-//   const params = {
-//     apikey: API_KEY,
-//     countryCode: countryCode,
-//     keyword: keyword,
-//     size: 16,
-//     page: page,
-//   };
-//   //   if (countryCode.length) {
-//   //     params.countryCode = countryCode;
-//   //   }
-//   return axios
-//     .get(`${BASE_URL}`, { params })
-//     .then(rec => rec.data._embedded.events);
-// };
-// import renderCard from '../templates/card-tpl.hbs';
-
-// const eventsList = document.querySelector('.events');
-
-// fetchServer(6, '', 'US').then(rec => {
-//   console.log(rec);
-//   //   eventsList.innerHTML += renderCard(rec);
-// });
