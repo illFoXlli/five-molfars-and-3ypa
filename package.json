@@ -46,7 +46,9 @@
 
     "sweetalert2": "^11.4.29",
 
-    "tui-pagination": "^3.4.1"
+    "tui-pagination": "^3.4.1",
+
+    "vanilla-lazyload": "^17.8.3"
 
   },
 
