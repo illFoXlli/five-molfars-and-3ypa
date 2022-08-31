@@ -40,3 +40,13 @@ export function notificationErorr() {
     timer: 2500,
   });
 }
+
+export function notificationErorrIcon() {
+  Swal.fire({
+    position: 'top-end',
+    icon: 'error',
+    title: 'not renderElems',
+    showConfirmButton: false,
+    timer: 1500,
+  });
+}

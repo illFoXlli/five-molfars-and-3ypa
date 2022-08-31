@@ -5,6 +5,7 @@ import {
   saveToSS,
   notificationOk,
   notificationErorr,
+  notificationErorrIcon,
 } from '../js/utils.js';
 import axios from 'axios';
 import { pageMenu } from '../js/pagination';
@@ -38,7 +39,12 @@ function onSubmit(event) {
   fetchServer(key);
 }
 //обратиться к серверу
-const fetchServer = ({ page, keyword, countryCode, numberCardByPage }) => {
+export const fetchServer = ({
+  page,
+  keyword,
+  countryCode,
+  numberCardByPage,
+}) => {
   const params = {
     apikey: API_KEY,
     countrysCode: countryCode,
@@ -50,18 +56,29 @@ const fetchServer = ({ page, keyword, countryCode, numberCardByPage }) => {
   if (getFromSS(key) === null) {
     console.log('=====IF=====');
     try {
-      console.log('=====IF====IF=====');
       return axios.get(`${BASE_URL}`, { params }).then(res => {
-        if (res.data._embedded !== undefined) {
-          console.log(res.data._embedded.events.length);
-          saveToSS(key, res);
-          setTotalPage(res.data.page.totalElements);
-          renderElems(res.data);
-          setPaginationServer(totalPages, key);
-          console.log(res.data._embedded.events);
-          return res.data;
-        } else {
-          notificationErorr();
+        try {
+          if (res.data._embedded !== undefined) {
+            console.log('=====IF ONE=====');
+            saveToSS(key, res);
+            setTotalPage(res.data.page.totalElements);
+            renderElems(res.data);
+            setPaginationServer(totalPages, key);
+            console.log(res.data._embedded.events);
+            return res.data;
+          } else if (res !== undefined) {
+            console.log('=====ELSE IF=====');
+            saveToSS(key, res);
+            setTotalPage(res.data.page.totalElements);
+            renderElems(res.data);
+            setPaginationServer(totalPages, key);
+            console.log(res.data._embedded.events);
+            return res.data;
+          } else {
+            notificationErorr();
+          }
+        } catch {
+          console.log('=====CATCH=====');
         }
       });
     } catch {}
@@ -87,10 +104,22 @@ function setPaginationServer(totalPages, key) {
     } catch (err) {
       console.log(err);
       spinerOff();
-      localStorage.clear();
+      //localStorage.clear();
     }
   });
 }
+
+// отрисовка карточек
+export function renderElems(data) {
+  try {
+    let LSElements = data._embedded.events;
+
+    eventsList.innerHTML = renderCard(LSElements);
+  } catch {
+    notificationErorrIcon();
+  }
+}
+
 function setPaginationLS(totalPages, key) {
   pageMenu(totalPages).on('beforeMove', async function (eventData) {
     let pages = eventData.page;
@@ -107,16 +136,11 @@ function setPaginationLS(totalPages, key) {
 }
 
 function setTotalPage(number) {
-  if (number < 960) {
+  if (number < 976) {
     totalPages = number;
   } else {
-    totalPages = 960;
+    totalPages = 976;
   }
 }
 
 fetchServer(key);
-// отрисовка карточек
-export function renderElems(data) {
-  let LSElements = data._embedded.events;
-  eventsList.innerHTML = renderCard(LSElements);
-}
