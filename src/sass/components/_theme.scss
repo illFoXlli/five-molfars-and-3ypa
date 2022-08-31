@@ -52,7 +52,8 @@
 .toggle {
   position: fixed;
   top: -75px;
-  left: -75px;
+  // left: -75px;
+  right: 0;
   width: 150px;
   height: 150px;
   border: none;
@@ -158,4 +159,37 @@
   100% {
     opacity: 1;
   }
+}
+
+@keyframes opacityOff {
+  0% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+  }
+}
+
+// h1 {
+//     text-align: center;
+// }
+
+// html {
+//     font-family: arial;
+//     font-size: 15px;
+//     line-height: 1.15;
+//     color: #0C0C0C;
+//     box-sizing: border-box;
+// }
+
+// * {
+//     font-family: inherit;
+//     font-size: inherit;
+//     color: inherit;
+//     box-sizing: inherit;
+// }
+
+.dark img {
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 50px;
 }

@@ -72,7 +72,7 @@
 
     @media screen and (min-width: 768px) {
       display: flex;
-      margin-top: 140px;
+      margin-top: 40px;
       margin-bottom: auto;
     }
 
@@ -81,14 +81,17 @@
   }
 
   &__svg {
-    margin-right: 13px;
+    margin-right: 7px;
+    @media screen and (min-width: 768px) {
+      margin-right: 13px;
+    }
   }
 
   &__img {
     width: 102px;
     height: 102px;
     border-radius: 50%;
-    margin-top: 82px;
+    // margin-top: 40px;
     margin-left: auto;
     margin-bottom: 20px;
     margin-right: auto;
@@ -136,6 +139,9 @@
       line-height: 29px;
     }
   }
+  &__list-item:last-child > h2 {
+    margin-bottom: 0;
+  }
 
   &__list-text {
     justify-content: center;
@@ -157,7 +163,7 @@
   }
 
   &__standart {
-    margin-top: 8px;
+    margin-top: 16px;
     margin-bottom: 16px;
 
     @media screen and (min-width: 768px) {
