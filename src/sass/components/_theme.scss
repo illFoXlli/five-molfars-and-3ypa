@@ -51,7 +51,8 @@
 .toggle {
     position: fixed;
     top: -75px;
-    left: -75px;
+    // left: -75px;
+    right: 0;
     width: 150px;
     height: 150px;
     border: none;
