@@ -10,11 +10,12 @@
   <form id="form" class="header__form">
     <label class="search__block">
       <input
+        type="text"
         id="inputSearch"
         name="searchQuery"
         class="search__input"
-        type="text"
         placeholder="Start searching"
+        autocomplete="off"
       />
       <button type="submit" class="search__button">
         <svg
@@ -31,6 +32,7 @@
         </svg>
       </button>
     </label>
+
     <select class="search__select" id="searchCountries" name="chooseQuery">
       <option class="search__option" data-US="US">Choose country</option>
     </select>
