@@ -10,10 +10,7 @@ export const pageMenu = function (total) {
     page: key.page,
     centerAlign: true,
   };
-  // console.log(`total-${options.itemsPerPage}`);
-  // console.log(`totalPage-${options.totalItems}`);
-  // console.log(`pagination-${options.totalItems / options.itemsPerPage}`);
-  // console.log(`page-${options.page}`);
+
   const pagination = new Pagination(container, options);
 
   return pagination;

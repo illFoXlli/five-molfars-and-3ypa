@@ -13,9 +13,5 @@ function onAboutAuthorBtnClick() {
   key.page = 1;
   console.log(key.page);
   fetchServer(key);
-  // renderElems();
   onToggleModalClick();
-
-  //console.log(authorName);
-  //console.log(key.keyword);
 }

@@ -57,20 +57,19 @@ export const fetchServer = ({
   };
 
   if (getFromSS(key) === null) {
-    console.log('=====IF=====');
+    // console.log('=====IF=====');
     try {
       return axios.get(`${BASE_URL}`, { params }).then(res => {
         try {
           if (res.data._embedded !== undefined) {
-            console.log('=====IF ONE=====');
+            // console.log('=====IF ONE=====');
             saveToSS(key, res);
             setTotalPage(res.data.page.totalElements);
             renderElems(res.data);
             setPaginationServer(totalPages, key);
-            console.log(res.data._embedded.events);
             return res.data;
           } else if (res !== undefined) {
-            console.log('=====ELSE IF=====');
+            // console.log('=====ELSE IF=====');
             saveToSS(key, res);
             setTotalPage(res.data.page.totalElements);
             renderElems(res.data);
@@ -81,12 +80,12 @@ export const fetchServer = ({
             notificationErorr();
           }
         } catch {
-          console.log('=====CATCH=====');
+          // console.log('=====CATCH=====');
         }
       });
     } catch {}
   } else {
-    console.log('=====ELSE=====');
+    // console.log('=====ELSE=====');
     let res = getFromSS(key);
     setTotalPage(res.data.page.totalElements);
     renderElems(res.data);
