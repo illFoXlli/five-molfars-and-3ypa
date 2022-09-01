@@ -63,10 +63,15 @@ function onCardClick(event) {
   }
 
   let cardModal = getFromSS(findUl);
-  console.log(cardModal);
-  let linc = cardModal.url;
-  console.log('+++++++++++++TUT++++++++++');
-  console.log(cardModal.url);
+  // console.log('+++++++++++++DO++++++++++');
+  // console.log(cardModal);
+  // console.log('+++++++++++++DO++++++++++');
+  // console.log(cardModal.url);
+  // cardModal = cardModal.priceRanges.map(item => (item.url = cardModal.url));
+  // cardModal.priceRanges.url = cardModal.url;
+  // console.log('+++++++++++++POSLE++++++++++');
+  // console.log(cardModal);
+  // console.log('+++++++++++++POSLE++++++++++');
   modalLih2.innerHTML = btnModal(cardModal);
 }
 
