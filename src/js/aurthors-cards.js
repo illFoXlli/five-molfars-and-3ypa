@@ -1,5 +1,5 @@
 import { fetchServer, renderElems } from './fetch-event';
-import { toggleModal, getCard, markupModal } from './modal';
+import { onToggleModalClick, getCard, markupModal } from './modal';
 import { saveToSS, getFromSS } from './utils';
 import { key } from './fetch-event';
 import { authorName } from './modal';
@@ -14,7 +14,7 @@ function onAboutAuthorBtnClick() {
   console.log(key.page);
   fetchServer(key);
   // renderElems();
-  toggleModal();
+  onToggleModalClick();
 
   //console.log(authorName);
   //console.log(key.keyword);
