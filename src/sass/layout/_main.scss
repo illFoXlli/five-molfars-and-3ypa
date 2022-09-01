@@ -1,7 +1,6 @@
 @import "../utils/variables"; // спинет общии стили
 
 .events {
-    //     position: relative;
     display: flex;
     flex-wrap: wrap;
 
@@ -52,7 +51,7 @@
         height: 101px;
         right: 0;
         top: -9px;
-        border: 2px solid var(--outline-border-color);
+        border: 1px solid var(--outline-border-color);
         box-sizing: border-box;
         border-radius: 50px 0px;
 
@@ -214,7 +213,7 @@
         height: 101px;
         right: 0;
         top: -9px;
-        border: 3px solid rgba(14, 14, 14, 0.3);
+        border: 2px solid rgba(14, 14, 14, 0.3);
         box-sizing: border-box;
         border-radius: 50px 0px;
 

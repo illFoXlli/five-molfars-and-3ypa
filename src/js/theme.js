@@ -16,7 +16,7 @@ function addDarkClassToHTML() {
 
 addDarkClassToHTML();
 
-document.querySelector('.toggle-overlay').addEventListener('click', function (event) {
+document.querySelector('.toggle-overlay').addEventListener('click', () => {
 
     if (t.classList.contains('night') && localStorage.getItem('theme') === 'dark') {
         t.classList.remove('night');

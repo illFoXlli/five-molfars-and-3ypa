@@ -1,9 +1,9 @@
 {{#each this}}
 <ul id="{{id}}" class="event">
   <li class="event__img">
-    <img loading="lazy" src={{images.[0].url}} alt="Sports event" />
+    {{!-- <img class = "img-src" loading="lazy" src={{images.[0].url}} alt="Sports event" /> --}}
 
-
+<img alt="A lazy image" class="lazy img-src" src="{{images.[9].url}}" data-src="{{images.[0].url}}" />
 
 
   </li>

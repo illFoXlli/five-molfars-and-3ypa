@@ -29,13 +29,13 @@
 }
 
 .footer__heart {
-  animation: heartbeat 1s infinite;
+  animation: soup 1s infinite;
   display: inline-block;
   color: red;
   font-size: 17px;
 }
 
-@keyframes heartbeat {
+@keyframes soup {
   0% {
     transform: scale(1);
   }
@@ -47,15 +47,4 @@
   40% {
     transform: scale(1.5);
   }
-}
-
-.footer__link {
-  text-decoration: none;
-  color: #939393;
-  display: inline-block;
-}
-
-.footer__link:hover,
-.footer__link:focus {
-  color: red;
 }
