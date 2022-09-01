@@ -63,15 +63,7 @@ function onCardClick(event) {
   }
 
   let cardModal = getFromSS(findUl);
-  // console.log('+++++++++++++DO++++++++++');
-  // console.log(cardModal);
-  // console.log('+++++++++++++DO++++++++++');
-  // console.log(cardModal.url);
-  // cardModal = cardModal.priceRanges.map(item => (item.url = cardModal.url));
-  // cardModal.priceRanges.url = cardModal.url;
-  // console.log('+++++++++++++POSLE++++++++++');
-  // console.log(cardModal);
-  // console.log('+++++++++++++POSLE++++++++++');
+  cardModal.priceRanges.map(item => (item.url = cardModal.url));
   modalLih2.innerHTML = btnModal(cardModal);
 }
 
@@ -119,13 +111,4 @@ function markupModal({ images, info, priceRanges, dates, _embedded }) {
   } catch {
     console.log('Price is not defined');
   }
-
-  // let btnBuy = document.querySelector('.btnBuy');
-  // btnBuy.addEventListener('click', onBuyTicketClick);
-
-  // function onBuyTicketClick() {
-  //   return btnBuy.setAttribute('href', `${url}`);
-  // }
 }
-
-// modalLiBtn.insertAdjacentHTML('beforeend', btnModal(filterCard));
