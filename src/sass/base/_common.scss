@@ -1,0 +1,123 @@
+@import "~node_modules/modern-normalize/modern-normalize.css";
+html {
+  scroll-behavior: smooth;
+  user-select: none;
+}
+h1,
+h2,
+h3,
+h4,
+p,
+ul,
+a {
+  list-style: none;
+  text-decoration: none;
+  margin: 0;
+  padding: 0;
+  display: block;
+}
+img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  border: 0;
+  padding: 0;
+  white-space: nowrap;
+  clip-path: inset(100%);
+  clip: rect(0 0 0 0);
+  overflow: hidden;
+}
+.is-hidden {
+  pointer-events: none;
+  opacity: 0;
+  & .modal {
+    transform: scale(0);
+  }
+}
+body {
+  //feature/modal
+  background-color: var(--black-bg-color);
+  color: var(--pink-text-color);
+  font-family: var(--primary-text-font);
+  // phone
+  @media screen and (max-width: 768px) {
+    background-image: url(../images/main-bg/bg-body-phone.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 100vw 3000px;
+  }
+  // tablet
+  @media screen and (min-width: 768px) {
+    background-image: url(../images/main-bg/bg-body-tablet.png);
+    background-repeat: no-repeat;
+    background-position: center top;
+    background-size: 100vw 3000px;
+  }
+  @media screen and (min-width: 1280px) {
+    background-image: url(../images/main-bg/bg-body-deckstop.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 100vw 3000px;
+    box-shadow: rgba(0, 0, 0, 0.56) 0px 22px 70px 4px;
+    // background: rgb(20, 1, 23);
+    // background: radial-gradient(circle, rgba(20, 1, 23, 1) 0%, rgba(0, 0, 0, 0.9444152661064426) 100%);
+  }
+}
+// white theme
+.dark body {
+  background-color: var(--black-bg-color);
+  color: var(--pink-text-color);
+  font-family: var(--primary-text-font);
+  // phone
+  @media screen and (max-width: 768px) {
+    background-image: url(../images/main-bg/main-bg-phone.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 100vw 3000px;
+  }
+  // tablet
+  @media screen and (min-width: 768px) {
+    background-image: url(../images/main-bg/bg-main-tablet2x.png);
+    background-repeat: no-repeat;
+    background-position: center top;
+    background-size: 100vw 3000px;
+  }
+  @media screen and (min-width: 1280px) {
+    background-image: url(../images/main-bg/bg-body-desk.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 100vw 3000px;
+    box-shadow: rgba(0, 0, 0, 0.56) 0px 22px 70px 4px;
+    // background: rgb(20, 1, 23);
+    // background: radial-gradient(circle, rgba(20, 1, 23, 1) 0%, rgba(0, 0, 0, 0.9444152661064426) 100%);
+  }
+  background: rgb(20, 1, 23);
+  background: radial-gradient(circle, rgba(20, 1, 23, 1) 0%, rgba(0, 0, 0, 0.9444152661064426) 100%);
+  // border: solid 1px #0000ff;
+  // background: #ddffff;
+}
+// background: rgb(20, 1, 23);
+// background: radial-gradient(circle, rgba(20, 1, 23, 1) 0%, rgba(0, 0, 0, 0.9444152661064426) 100%);
+.no-scroll {
+  overflow: hidden;
+  border-right: 7px solid transparent;
+}
+::-webkit-scrollbar {
+  width: 7px;
+}
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(transparent, #b03689);
+  border-radius: 6px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(transparent, #a91079);
+}
+::-webkit-scrollbar-track {
+  background: black;
+}

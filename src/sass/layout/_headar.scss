@@ -1,0 +1,465 @@
+.header {
+  position: relative;
+  padding-bottom: 60px;
+  height: 364px;
+  max-width: 1600px;
+  background-position: 50% 50%;
+  margin-left: auto;
+  margin-right: auto;
+  background-size: cover;
+
+  @media screen and (max-width: 767.98px) {
+    background-image: url(../images/header-bg/pic.png);
+    background-repeat: no-repeat;
+  }
+
+  @media screen and (min-width: 768px) {
+    background-image: url(../images/header-bg/pic-tablet.png);
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+    background-size: cover;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  @media screen and (min-width: 1280px) {
+    background-image: url(../images/header-bg/pic-desktop.png);
+    background-repeat: no-repeat;
+
+    background-position: 50% 50%;
+    background-size: cover;
+    margin-left: auto;
+    margin-right: auto;
+    height: 446px;
+
+    box-shadow: rgba(0, 0, 0, 0.56) 0px 22px 70px 4px;
+  }
+}
+
+.header {
+  position: relative;
+
+  &__logo {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 300;
+
+    @media screen and (max-width: 767.98px) {
+      background-image: url(../images/logo/logo-phone.png);
+      background-repeat: no-repeat;
+      pointer-events: none;
+      height: 300px;
+      width: 300px;
+      filter: brightness(93%) contrast(124%) grayscale(15%) hue-rotate(20deg)
+        invert(10%) opacity(77%) saturate(24%) sepia(13%);
+    }
+
+    @media screen and (min-width: 768px) {
+      background-image: url(../images/logo/logo-tablet.png);
+      background-repeat: no-repeat;
+      pointer-events: none;
+      height: 300px;
+      width: 300px;
+      filter: brightness(93%) contrast(124%) grayscale(15%) hue-rotate(20deg)
+        invert(10%) opacity(77%) saturate(24%) sepia(13%);
+    }
+
+    @media screen and (min-width: 1280px) {
+      background-image: url(../images/logo/logo-desk.png);
+      background-repeat: no-repeat;
+      pointer-events: none;
+      height: 300px;
+      width: 300px;
+
+      filter: brightness(93%) contrast(124%) grayscale(15%) hue-rotate(20deg)
+        invert(10%) opacity(77%) saturate(24%) sepia(13%);
+    }
+  }
+}
+
+.dark .header {
+  // backdrop-filter: invert(.7);
+
+  @media screen and (max-width: 767.98px) {
+    background-image: url(../images/header-bg/pic-header-phone.png);
+    background-repeat: no-repeat;
+    box-shadow: rgba(0, 0, 0, 0.56) 0px 22px 70px 4px;
+  }
+
+  @media screen and (min-width: 768px) {
+    background-image: url(../images/header-bg/pic-header-tablet.png);
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+    background-size: cover;
+    margin-left: auto;
+    margin-right: auto;
+    box-shadow: rgba(0, 0, 0, 0.56) 0px 22px 70px 4px;
+  }
+
+  @media screen and (min-width: 1280px) {
+    background-image: url(../images/header-bg/pic-header-desk.png);
+    background-repeat: no-repeat;
+
+    background-position: 50% 50%;
+    background-size: cover;
+    margin-left: auto;
+    margin-right: auto;
+    height: 446px;
+    // border-radius: 2%;
+
+    box-shadow: rgba(0, 0, 0, 0.56) 0px 22px 70px 4px;
+  }
+}
+
+.header__title {
+  margin: 0 auto;
+  padding-top: 80px;
+  padding-bottom: 24px;
+  width: 240px;
+  text-align: center;
+  font-weight: 900;
+  font-size: 18px;
+  line-height: 1.22;
+
+  animation: blink 8s infinite;
+  color: var(--pink-text-color);
+
+  @media screen and (min-width: 768px) {
+    padding-top: 40px;
+    padding-bottom: 40px;
+    font-size: 30px;
+    width: 400px;
+  }
+
+  @media screen and (min-width: 1280px) {
+    font-size: 50px;
+    width: 608px;
+  }
+}
+
+@keyframes blink {
+  20%,
+  24%,
+  55% {
+    color: black;
+    text-shadow: none;
+  }
+
+  0%,
+  19%,
+  21%,
+  23%,
+  25%,
+  54%,
+  56%,
+  100% {
+    text-shadow: 0 0 5px var(--title-text-animation-color),
+      0 0 15px var(--title-text-animation-color),
+      0 0 20px var(--title-text-animation-color),
+      0 0 40px var(--title-text-animation-color),
+      0 0 60px var(--title-text-animation-color),
+      0 0 10px var(--title-text-animation-color),
+      0 0 98px var(--title-text-animation-color);
+    color: var(--primary-white-text-color);
+  }
+}
+
+.header__form {
+  margin: 0 auto;
+  width: 280px;
+  height: 40px;
+  display: flex;
+  flex-wrap: wrap;
+
+  @media screen and (min-width: 768px) {
+    justify-content: space-between;
+    width: 704px;
+  }
+
+  @media screen and (min-width: 1280px) {
+    width: 608px;
+  }
+}
+
+.search__input {
+  backdrop-filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+  width: 280px;
+  height: 40px;
+  padding: 10 10 10 32;
+  color: var(--gray-text-color);
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 20px;
+
+  background: var(--primary-input-bg-color);
+  backdrop-filter: blur(20px);
+  border-radius: 20px;
+  border: 1px solid transparent;
+  outline: none;
+
+  &::placeholder {
+    color: var(--gray-icon-color);
+  }
+
+  &:focus,
+  &:hover {
+    border-color: var(--pink-text-color);
+
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    transition-duration: 250ms;
+    transition-property: border-color;
+  }
+
+  @media screen and (min-width: 768px) {
+    width: 336px;
+  }
+
+  @media screen and (min-width: 1280px) {
+    width: 288px;
+  }
+}
+.dark .search__input {
+  background: var(--secondary-modal-bg-color);
+}
+.custom-select-opener:focus {
+  height: 40px;
+  background-image: linear-gradient(
+      45deg,
+      #0000 50%,
+      var(--pink-text-color) 50%
+    ),
+    linear-gradient(135deg, var(--pink-text-color) 50%, #0000 50%) !important;
+  background-position: calc(100% - 34px) calc(1em + 2px),
+    calc(100% - 26px) calc(1em + 2px), calc(100% - 2.5em) 0.5em !important;
+  background-repeat: no-repeat !important;
+  background-size: 8px 8px, 8px 8px, 1px 5.5em !important;
+
+  border-color: var(--pink-text-color);
+  border: 1px solid var(--pink-text-color);
+  -webkit-tap-highlight-color: transparent;
+
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1) !important;
+  transition-duration: 250ms !important;
+  transition-property: border-color, background-image, background-position !important;
+}
+
+.custom-select-option {
+  padding: 1px 0px 1px 30px;
+  cursor: pointer;
+}
+.dark .custom-select-opener {
+  background: var(--secondary-modal-bg-color);
+}
+.dark .custom-select-panel {
+  background: var(--secondary-modal-bg-color);
+}
+.custom-select-option.has-focus {
+  background-color: var(--pink-text-color);
+  transition: cubic-bezier(0.4, 0, 0.2, 1), 250ms, background-color;
+}
+
+.custom-select-opener {
+  width: 280px;
+  padding: 10 10 10 32;
+  border: 1px solid transparent;
+  border-radius: 20px;
+  outline: none;
+  height: 40px;
+
+  backdrop-filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+  color: var(--gray-text-color);
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(20px);
+
+  line-height: 20px;
+
+  @media screen and (min-width: 768px) {
+    width: 336px !important;
+  }
+
+  @media screen and (min-width: 1280px) {
+    width: 288px !important;
+  }
+
+  &:focus,
+  &:hover {
+    border-color: var(--pink-text-color);
+  }
+}
+
+.custom-select-opener,
+.search__block,
+.custom-select-container {
+  position: relative;
+}
+
+.search__button,
+.custom-select-container select,
+.custom-select-panel {
+  position: absolute;
+}
+
+.custom-select-opener {
+  background-image: linear-gradient(45deg, #0000 50%, gray 50%),
+    linear-gradient(135deg, gray 50%, #0000 50%) !important;
+  background-position: calc(100% - 34px) calc(1em + 2px),
+    calc(100% - 26px) calc(1em + 2px), calc(100% - 2.5em) 0.5em !important;
+  background-repeat: no-repeat !important;
+  background-size: 8px 8px, 8px 8px, 1px 5.5em !important;
+
+  right: 0;
+  z-index: 2;
+  display: block;
+  cursor: pointer;
+}
+
+.search__block {
+  margin-bottom: 24px;
+
+  @media screen and (min-width: 768px) {
+    margin-bottom: 0;
+  }
+}
+
+.search__button {
+  background-color: transparent;
+  top: 30%;
+  right: 22px;
+  border: 0;
+  outline: none;
+  z-index: 2;
+}
+
+.custom-select-container {
+  background-size: 10px 12px;
+  box-sizing: border-box;
+  z-index: 20;
+}
+
+.custom-select-container select {
+  visibility: hidden;
+  top: 0;
+  left: 0;
+}
+
+.custom-select-panel {
+  max-height: 0;
+  transition: max-height 2s ease-out overflow-y 0.1s 0.5s;
+  overflow: hidden;
+  background: var(--primary-input-bg-color);
+  backdrop-filter: blur(20px);
+  border-radius: 0 0 20px 20px;
+  z-index: 1 !important;
+
+  width: 262px;
+  height: 158px;
+  left: 9px;
+  top: 15px;
+
+  @media screen and (min-width: 768px) {
+    width: 318px;
+  }
+
+  @media screen and (min-width: 1280px) {
+    width: 270px;
+  }
+}
+
+.custom-select-container.is-open .custom-select-panel {
+  max-height: 10.7em;
+  overflow-y: auto;
+  position: absolute;
+
+  z-index: 0;
+  font-family: 'Montserrat';
+  font-style: normal;
+  line-height: 20px;
+  color: #cccccc;
+}
+
+.custom-select-container.is-open .custom-select-panel::-webkit-scrollbar {
+  width: 0;
+}
+
+[data-value='US'] {
+  margin-top: 34px;
+}
+
+.custom-select-option:first-child {
+  display: none;
+}
+
+.search__icon {
+  position: absolute;
+  top: 30%;
+  right: 10%;
+
+  &:focus,
+  &:hover {
+    fill: var(--pink-text-color);
+  }
+}
+
+.search__input:hover + .search__button > .search__icon,
+.search__input:focus + .search__button > .search__icon {
+  fill: var(--pink-text-color);
+}
+
+.search__input::selection {
+  background-color: var(--pink-text-color);
+  color: #ccc;
+}
+
+.dark .header__title {
+  color: black;
+  animation: blink 8s infinite;
+  @keyframes blink {
+    20%,
+    24%,
+    55% {
+      color: pink;
+      text-shadow: none;
+    }
+
+    0%,
+    19%,
+    21%,
+    23%,
+    25%,
+    54%,
+    56%,
+    100% {
+      text-shadow: 0 0 5px var(--title-text-animation-color),
+        0 0 15px var(--title-text-animation-color),
+        0 0 20px var(--title-text-animation-color),
+        0 0 40px var(--title-text-animation-color),
+        0 0 60px var(--title-text-animation-color),
+        0 0 10px var(--title-text-animation-color),
+        0 0 98px var(--title-text-animation-color);
+      color: var(--primary-white-text-color);
+    }
+  }
+}
+.custom-select-panel::before {
+  content: '';
+  width: 233px;
+  height: 2px;
+  background-color: #939393;
+  border-radius: 3px;
+  display: block;
+  position: absolute;
+  top: 29px;
+  left: 14px;
+
+  @media screen and (min-width: 768px) {
+    width: 287px;
+    height: 3px;
+    top: 28px;
+    left: 15px;
+  }
+  @media screen and (min-width: 1280px) {
+    width: 241px;
+    top: 30px;
+  }
+}
